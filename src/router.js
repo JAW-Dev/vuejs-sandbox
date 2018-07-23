@@ -12,7 +12,6 @@ const baseURL = (process.env.NODE_ENV === 'production') ? '/vuejs-sandbox/dist/'
 
 export default new Router({
 	mode: 'history',
-	base: baseURL,
   routes: [
     { path: '/', name: 'Home', component: Home },
     { path: '/autocomplete-field', name: 'Autocomplete Field', component: AutocompleteField },
