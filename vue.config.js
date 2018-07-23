@@ -6,7 +6,5 @@ module.exports = {
       }
     }
 	},
-	baseUrl: process.env.NODE_ENV === 'production'
-    ? 'https://jawittdesigns.github.io/vuejs-sandbox/dist/'
-    : '/'
+	baseUrl: process.env.NODE_ENV === 'production' ? 'https://jawittdesigns.github.io/vuejs-sandbox/dist/' : '/'
 };
