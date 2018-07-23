@@ -10,7 +10,7 @@
 
     <ul class="nav__list">
       <li class="list__item" v-for="(data, index) in routeData" :key="index">
-        <router-link :to="data.path">{{ data.name }}</router-link>
+        <router-link :to="data.path" v-on:click.native="closeWhenClicked">{{ data.name }}</router-link>
       </li>
     </ul>
   </nav>
@@ -25,6 +25,11 @@ export default {
 			routeData: [],
 			viewportWidth: 0
     };
+	},
+	methods: {
+		closeWhenClicked() {
+			document.querySelector('.toggle__input').checked = false;
+		}
 	},
 	watch: {
 		// Uncheck mobile menu checkbox when viewport withd is 700 or greater.
