@@ -5,5 +5,6 @@ module.exports = {
         data: '@import "src/assets/sass/style.scss";'
       }
     }
-	}
+	},
+	baseUrl: process.env.NODE_ENV === 'production' ? 'https://jawittdesigns.github.io/vuejs-sandbox/dist/' : '/'
 };
