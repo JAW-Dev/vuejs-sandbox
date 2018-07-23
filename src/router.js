@@ -13,8 +13,9 @@ const baseURL = (process.env.NODE_ENV === 'production') ? 'https://jawittdesigns
 export default new Router({
   mode: 'history',
   routes: [
-    { path: baseURL + '/', name: 'Home', component: Home },
-    { path: baseURL + '/autocomplete-field', name: 'Autocomplete Field', component: AutocompleteField },
-    { path: baseURL + '/article-aggregator', name: 'Article Aggregator', component: ArticleAggregator }
-  ]
+    { path: '/', name: 'Home', component: Home },
+    { path: '/autocomplete-field', name: 'Autocomplete Field', component: AutocompleteField },
+    { path: '/article-aggregator', name: 'Article Aggregator', component: ArticleAggregator }
+	],
+	base: baseURL
 });
