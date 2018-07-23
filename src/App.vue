@@ -32,6 +32,9 @@ export default {
 }
 .title {
 	text-align: center;
-	margin-bottom: 6rem;
+	margin: 0 0 6em;
+	@media (max-width: px-to-em(700)) {
+		margin: px-to-em(40) 0 6em;
+	}
 }
 </style>
