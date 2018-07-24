@@ -1,16 +1,16 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import produce from './modules/produce';
 
-Vue.use(Vuex);
+// Import Modules
+// import produce from './modules/produce';
+// import routes from './modules/routes';
+// import excludeNav from './modules/excludeNav';
+import modules from './modules'
+
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
-	state: {
-		value: 0
-	},
-	modules: {
-		produce
-	}
-});
+  modules
+})
 
 export default store;

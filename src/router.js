@@ -5,6 +5,7 @@ import Router from 'vue-router';
 import Home from '@/views/Home.vue';
 import AutocompleteField from '@/views/AutocompleteField.vue';
 import ArticleAggregator from '@/views/ArticleAggregator.vue';
+import MobileMenu from '@/views/MobileMenu.vue';
 
 Vue.use(Router);
 
@@ -16,6 +17,7 @@ export default new Router({
     { path: '/', name: 'Home', component: Home, nav: true },
     { path: '/autocomplete-field', name: 'Autocomplete Field', component: AutocompleteField, nav: true },
 		{ path: '/article-aggregator', name: 'Article Aggregator', component: ArticleAggregator, nav: true },
+		{ path: '/mobile-menu', name: 'Mobile Menu', component: MobileMenu, nav: true, exclude: true },
 		{ path: '*', redirect: '/' }
 	]
 });

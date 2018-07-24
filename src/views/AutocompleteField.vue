@@ -23,7 +23,7 @@ export default {
     };
 	},
 	computed: {
-		...mapGetters([
+		...mapGetters('produce', [
 			'getProduce'
 		])
 	},
@@ -43,7 +43,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .label {
 	text-align: center;
 }

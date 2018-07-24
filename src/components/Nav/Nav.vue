@@ -10,14 +10,14 @@
 
     <ul class="nav__list">
       <li class="list__item" v-for="(data, index) in routeData" :key="index">
-        <router-link v-if="data.nav" :to="data.path" v-on:click.native="closeWhenClicked">{{ data.name }}</router-link>
+        <router-link v-if="data.nav" :to="data.path" v-on:click.native="closeWhenClicked" :key="$route.fullPath">{{ data.name }}</router-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import router from '@/router';
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
@@ -31,6 +31,11 @@ export default {
 			document.querySelector('.toggle__input').checked = false;
 		}
 	},
+	computed: {
+		...mapGetters('routes', [
+			'getRouteData',
+		])
+	},
 	watch: {
 		// Uncheck mobile menu checkbox when viewport withd is 700 or greater.
     viewportWidth() {
@@ -41,7 +46,7 @@ export default {
 	},
   created() {
 		// set the router data.
-		this.routeData = router.options.routes;
+		this.routeData = this.getRouteData;
 		// set the window viewport width.
 		this.viewportWidth = window.innerWidth
 	},
