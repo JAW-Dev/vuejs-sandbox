@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 importScripts(
-  "https://jawittdesigns.github.io/vuejs-sandbox/dist/precache-manifest.bc0e04cfdc595e4083ba1a594b632c94.js"
+  "https://jawittdesigns.github.io/vuejs-sandbox/dist/precache-manifest.94d8874bf6407dcdc5d55e132174a310.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "sandbox"});
