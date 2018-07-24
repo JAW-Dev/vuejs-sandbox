@@ -8,11 +8,11 @@ self.__precacheManifest = [
     "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/js/chunk-vendors.7275672b.js"
   },
   {
-    "revision": "a2a79b9379e4d9035135",
-    "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/js/app.a2a79b93.js"
+    "revision": "5a2c368caf55977528c3",
+    "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/js/app.5a2c368c.js"
   },
   {
-    "revision": "7c5b2931f5717857c11dc84d5dc14c93",
+    "revision": "167aba59b1dfad55f410591f1aa75276",
     "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/index.html"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/img/logo.82b9c7a5.png"
   },
   {
-    "revision": "a2a79b9379e4d9035135",
+    "revision": "5a2c368caf55977528c3",
     "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/css/app.9df1e816.css"
   }
 ];
