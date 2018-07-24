@@ -1,6 +1,5 @@
 <template>
   <div class="autocomplete" v-if="options">
-
     <input class="autocomplete__input"
       @click="showOptions()"
       @blur="exit()"
