@@ -14,8 +14,9 @@ export default new Router({
 	mode: 'history',
 	base: baseURL,
   routes: [
-    { path: '/', name: 'Home', component: Home },
-    { path: '/autocomplete-field', name: 'Autocomplete Field', component: AutocompleteField },
-    { path: '/article-aggregator', name: 'Article Aggregator', component: ArticleAggregator }
+    { path: '/', name: 'Home', component: Home, nav: true },
+    { path: '/autocomplete-field', name: 'Autocomplete Field', component: AutocompleteField, nav: true },
+		{ path: '/article-aggregator', name: 'Article Aggregator', component: ArticleAggregator, nav: true },
+		{ path: '*', redirect: '/' }
 	]
 });
