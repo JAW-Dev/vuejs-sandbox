@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://jawittdesigns.github.io/index.html",
+  "start_url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#4DBA87"
