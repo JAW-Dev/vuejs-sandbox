@@ -10,7 +10,11 @@
 
     <ul class="nav__list">
       <li class="list__item" v-for="(data, index) in routeData" :key="index">
-        <router-link v-if="data.nav" :to="data.path" v-on:click.native="closeWhenClicked" :key="$route.fullPath">{{ data.name }}</router-link>
+        <router-link 
+					v-if="data.nav"
+					:to="data.path"
+					v-on:click.native="closeWhenClicked"
+					:key="$route.fullPath">{{ data.name }}</router-link>
       </li>
     </ul>
   </nav>
