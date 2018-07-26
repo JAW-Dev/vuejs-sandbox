@@ -9,24 +9,22 @@
 		</div>
 
     <ul class="nav__list">
-      <li class="list__item" v-for="(data, index) in routeData" :key="index">
+      <li class="list__item" v-for="(data, index) in menuRoutes" :key="index">
         <router-link 
-					v-if="data.nav"
 					:to="data.path"
 					v-on:click.native="closeWhenClicked"
-					:key="$route.fullPath">{{ data.name }}</router-link>
+					:key="$route.fullPath">{{ data.title }}</router-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import AppRoutes from '@/router/routes/AppRoutes';
 
 export default {
   data() {
     return {
-			routeData: [],
 			viewportWidth: 0
     };
 	},
@@ -36,9 +34,9 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters('routes', [
-			'getRouteData',
-		])
+		menuRoutes() {
+			return AppRoutes;
+		}
 	},
 	watch: {
 		// Uncheck mobile menu checkbox when viewport withd is 700 or greater.
@@ -49,8 +47,6 @@ export default {
     }
 	},
   created() {
-		// set the router data.
-		this.routeData = this.getRouteData;
 		// set the window viewport width.
 		this.viewportWidth = window.innerWidth
 	},
