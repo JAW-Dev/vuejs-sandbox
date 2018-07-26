@@ -2,11 +2,12 @@
   <nav class="nav" id="nav">
 
 		<input class="toggle__input" type="checkbox" />
-		<div class="nav__toggle">
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-			<span class="menu-line"></span>
-		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="nav__toggle">
+			<path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 
+				12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 
+				5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 
+				0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"/>
+		</svg>
 
     <ul class="nav__list">
       <li class="list__item" v-for="(data, index) in menuRoutes" :key="index">
@@ -77,17 +78,17 @@ body .app .nav {
 
 	.toggle__input,
 	.nav__toggle {
+		height: 2em;
 		position: absolute;
 		left: 1em;
-		top: 1em;
+		top: 0.7em;
+		width: 2em;
 	}
 
 	.toggle__input {
 		cursor: pointer;
 		display: none;
-		height: px-to-em(22);
 		opacity: 0;
-		width: px-to-em(30);
 		z-index: 5;
 		
 		@media (max-width: px-to-em(700)) {
@@ -103,27 +104,16 @@ body .app .nav {
 				opacity: 1;
 				transition: opacity 0s ease 0.3s;
 			}
-			&:checked ~ .nav__toggle .menu-line {
-				background-color: $white;
+			&:checked ~ .nav__toggle {
+				fill: $white;
 			}
 		}
 	}
 
 	.nav__toggle {
 		display: none;
-		width: px-to-em(30);
 		z-index: 3;
-
-		.menu-line {
-			background-color: $black;
-			border-radius: px-to-em(3);
-			display: block;
-			height: 4px;
-			margin-bottom: 5px;
-			position: relative;
-			transition: background-color 0s ease 0.3s;
-			z-index: 4;
-		}
+		fill: $black;
 
 		@media (max-width: px-to-em(700)) {
 			display: block;
