@@ -1,75 +1,81 @@
 <template>
-  <nav class="nav" id="nav">
-
-		<input class="toggle__input" type="checkbox" @click="toggleMenuState" />
+	<NavList :routes="menuRoutes">
+		<input class="toggle__input" type="checkbox" @click="toggleMenuState" ref="toggleCheckbox"/>
 		<font-awesome-icon :icon="['fas', 'bars']" class="nav__toggle" v-show="!isMobileNavOpen" />
 		<font-awesome-icon :icon="['far', 'times']" class="nav__toggle" v-show="isMobileNavOpen" />
-		
-    <ul class="nav__list">
-      <li class="list__item" v-for="(data, index) in menuRoutes" :key="index">
-        <router-link 
-					:to="data.path"
-					v-on:click.native="closeWhenClicked"
-					:key="$route.fullPath">{{ data.title }}</router-link>
-      </li>
-    </ul>
-  </nav>
+	</NavList>
 </template>
 
 <script>
 import AppRoutes from '@/router/routes/AppRoutes';
+import NavList from '@/components/Nav/NavList';
 import { mapGetters, mapMutations } from 'vuex';
 
 export default {
-  data() {
+	components: {
+		NavList
+	},
+	data() {
     return {
-			viewportWidth: 0,
-			isMenuOpen: false
+			viewportWidth: 0
     };
 	},
 	methods: {
 		...mapMutations('nav', [
-			'toggleMenuState'
+			'toggleMenuState',
+			'setNavOpenFalse'
 		]),
-		closeWhenClicked() {
-			document.querySelector('.toggle__input').checked = false;
-		}
+		linkIsClicked() {
+			let elements = document.querySelectorAll('.list__item');
+			// Add a click event for all router links.
+			elements.forEach((element) => {
+				// Close the menu when a router link is clicked.
+				// Set isMobileNavOpen state to false when a router link is clicked.
+				element.addEventListener('click', () => {
+					this.$refs.toggleCheckbox.checked = false;
+					this.setNavOpenFalse();
+				});
+			})
+		},
+		checkViewportResize() {
+			// Update viewportWidth to viewport size when the window is resized.
+			window.addEventListener('resize', () => {
+        this.viewportWidth = window.innerWidth
+			});
+		},
 	},
 	computed: {
 		...mapGetters('nav', [
 			'isMobileNavOpen'
 		]),
 		menuRoutes() {
+			// Return the routes object.
 			return AppRoutes;
-		},
-		menuIcon() {
-			if ( this.isMobileNavOpen ) {
-				return 'times';
-			}
-			return 'bars';
 		}
 	},
 	watch: {
 		// Uncheck mobile menu checkbox when viewport withd is 700 or greater.
+		// Set isMobileNavOpen state to false.
     viewportWidth() {
 			if ( this.viewportWidth >= 700) {
-				document.querySelector('.toggle__input').checked = false;
+				this.$refs.toggleCheckbox.checked = false;
+				this.setNavOpenFalse();
 			}
     }
 	},
   created() {
-		// set the window viewport width.
+		// Set viewportWidth to the viewport width.
 		this.viewportWidth = window.innerWidth
 	},
   mounted() {
-		// Check the viewport width on window resize.
     this.$nextTick(() => {
-      window.addEventListener('resize', () => {
-        this.viewportWidth = window.innerWidth
-      });
+			// Check the viewport width on window resize.
+      this.checkViewportResize();
+			// Check if link is clicked
+			this.linkIsClicked();
     })
   },
-};
+}
 </script>
 
 <style lang="scss">
