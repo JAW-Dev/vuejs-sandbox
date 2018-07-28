@@ -1,15 +1,15 @@
 <template>
   <div class="app" id="app">
-		<Nav v-show="!excludeNav"/>
+		<Nav />
 		<Main />
 		<Footer />
   </div>
 </template>
 
 <script>
-import Nav from '@/components/Nav/Nav'
-import Main from '@/components/Main'
-import Footer from '@/components/Footer'
+import Nav from '@/views/NavView'
+import Main from '@/views/MainView'
+import Footer from '@/views/FooterView'
 import { mapState } from 'vuex';
 
 export default {
@@ -22,11 +22,6 @@ export default {
 		Nav,
 		Main,
 		Footer
-	},
-	computed: {
-		...mapState('excludeNav', [
-			'excludeNav'
-		])
 	}
 }
 </script>
