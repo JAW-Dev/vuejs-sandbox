@@ -11,5 +11,11 @@ export const getters = {
 export const mutations = {
 	toggleMenuState(state) {
 		state.isMobileNavOpen = !state.isMobileNavOpen;
+	},
+	setNavOpenTrue(state) {
+		state.isMobileNavOpen = true;
+	},
+	setNavOpenFalse(state) {
+		state.isMobileNavOpen = false;
 	}
 }
