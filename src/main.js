@@ -4,6 +4,9 @@ import router from '@/router/index';
 import store from '@/store/index';
 import '@/registerServiceWorker';
 
+// Add FontAwesome
+import '@/config/fontawesome';
+
 // Import mixins
 import { excludeMenuMixin } from './mixins/excludeMenuMixin';
 
