@@ -1,14 +1,10 @@
 <template>
   <nav class="nav" id="nav">
 
-		<input class="toggle__input" type="checkbox" />
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="nav__toggle">
-			<path d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 
-				12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 
-				5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 
-				0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"/>
-		</svg>
-
+		<input class="toggle__input" type="checkbox" @click="toggleMenuState" />
+		<font-awesome-icon :icon="['fas', 'bars']" class="nav__toggle" v-show="!isMobileNavOpen" />
+		<font-awesome-icon :icon="['far', 'times']" class="nav__toggle" v-show="isMobileNavOpen" />
+		
     <ul class="nav__list">
       <li class="list__item" v-for="(data, index) in menuRoutes" :key="index">
         <router-link 
@@ -22,21 +18,35 @@
 
 <script>
 import AppRoutes from '@/router/routes/AppRoutes';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   data() {
     return {
-			viewportWidth: 0
+			viewportWidth: 0,
+			isMenuOpen: false
     };
 	},
 	methods: {
+		...mapMutations('nav', [
+			'toggleMenuState'
+		]),
 		closeWhenClicked() {
 			document.querySelector('.toggle__input').checked = false;
 		}
 	},
 	computed: {
+		...mapGetters('nav', [
+			'isMobileNavOpen'
+		]),
 		menuRoutes() {
 			return AppRoutes;
+		},
+		menuIcon() {
+			if ( this.isMobileNavOpen ) {
+				return 'times';
+			}
+			return 'bars';
 		}
 	},
 	watch: {
@@ -105,7 +115,7 @@ body .app .nav {
 				transition: opacity 0s ease 0.3s;
 			}
 			&:checked ~ .nav__toggle {
-				fill: $white;
+				color: $white;
 			}
 		}
 	}
