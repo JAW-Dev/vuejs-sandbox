@@ -1,9 +1,9 @@
 <template>
 <div>
 	<div class="title">
-      <h1>Tabs</h1>
-    </div>
-		<Tabs :tabs="getTabs" />
+		<h1>Tabs</h1>
+	</div>
+	<Tabs :tabs="getTabs" />
 </div>
 </template>
 
