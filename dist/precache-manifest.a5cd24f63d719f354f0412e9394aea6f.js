@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/js/app.452b2d4c.js"
   },
   {
-    "revision": "00ecc6357c9158e7abd3ffc630f8f4f1",
+    "revision": "426f47b8d18a8e0fd0b33ec4f55e4869",
     "url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/index.html"
   },
   {
