@@ -1,40 +1,38 @@
 {
-  "name": "sandbox",
+  "name": "test-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --fix",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+		"@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-brands-svg-icons": "^5.2.0",
     "@fortawesome/free-regular-svg-icons": "^5.2.0",
-    "@fortawesome/free-solid-svg-icons": "^5.2.0",
-    "@fortawesome/pro-light-svg-icons": "^5.2.0",
+		"@fortawesome/free-solid-svg-icons": "^5.2.0",
+		"@fortawesome/pro-light-svg-icons": "^5.2.0",
     "@fortawesome/pro-regular-svg-icons": "^5.2.0",
     "@fortawesome/pro-solid-svg-icons": "^5.2.0",
-    "@fortawesome/vue-fontawesome": "^0.1.1",
-    "axios": "^0.18.0",
-    "lodash": "^4.17.10",
-    "register-service-worker": "^1.0.0",
+		"@fortawesome/vue-fontawesome": "^0.1.1",
+		"axios": "^0.18.0",
+		"lodash": "^4.17.10",
+		"register-service-worker": "^1.0.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.2.0",
-    "@fortawesome/fontawesome-pro": "^5.2.0",
-    "@vue/cli-plugin-babel": "^3.0.0-rc.9",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.10",
     "@vue/cli-plugin-e2e-cypress": "^3.0.0-rc.10",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.9",
-    "@vue/cli-plugin-pwa": "^3.0.0-rc.9",
-    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.9",
-    "@vue/cli-service": "^3.0.0-rc.9",
-    "@vue/eslint-config-prettier": "^3.0.0-rc.5",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.10",
+    "@vue/cli-plugin-pwa": "^3.0.0-rc.10",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.10",
+    "@vue/cli-service": "^3.0.0-rc.10",
+    "@vue/eslint-config-standard": "^3.0.0-rc.10",
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
@@ -45,12 +43,16 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+			"node": true,
+			"jest": true
     },
     "extends": [
-      "plugin:vue/essential"
+      "plugin:vue/essential",
+      "@vue/standard"
     ],
     "rules": {
+      "import/no-extraneous-dependencies": "off",
+      "space-before-function-paren": ["error", "never"],
       "quotes": [
         "error",
         "single",
@@ -112,6 +114,7 @@
     ],
     "testMatch": [
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
-    ]
+    ],
+    "testURL": "http://localhost/"
   }
 }
