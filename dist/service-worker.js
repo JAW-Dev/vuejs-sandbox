@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 importScripts(
-  "https://jawittdesigns.github.io/vuejs-sandbox/dist/precache-manifest.462e78e8e606244e8e310078dae7ffe8.js"
+  "https://jawittdesigns.github.io/vuejs-sandbox/dist/precache-manifest.1aaac4df2f595aa1a4de734429f222ce.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "sandbox"});
+workbox.core.setCacheNameDetails({prefix: "test-test"});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to

@@ -1,19 +1,19 @@
 {
-  "name": "My Vue.js Components",
-  "short_name": "Vue Components",
+  "name": "test-test",
+  "short_name": "test-test",
   "icons": [
     {
-      "src": "https://jawittdesigns.github.io/vuejs-sandbox/dist/img/icons/android-chrome-192x192.png",
+      "src": "/img/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://jawittdesigns.github.io/vuejs-sandbox/dist/img/icons/android-chrome-512x512.png",
+      "src": "/img/icons/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "https://jawittdesigns.github.io/vuejs-sandbox/dist/index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#4DBA87"
