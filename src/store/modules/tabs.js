@@ -1,11 +1,11 @@
-import jsonData from '@/data/tabs.json';
+import jsonData from '@/data/tabs.json'
 
 export const state = {
-	tabs: jsonData
+  tabs: jsonData
 }
 
 export const getters = {
-	getTabs: state => {
-		return state.tabs;
-	}
+  getTabs: state => {
+    return state.tabs
+  }
 }

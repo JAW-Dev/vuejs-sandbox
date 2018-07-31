@@ -1,12 +1,12 @@
 export const state = {
-	excludeNav: false
+  excludeNav: false
 }
 
 export const mutations = {
-	excludeNavTrue() {
-		state.excludeNav = true;
-	},
-	excludeNavFalse() {
-		state.excludeNav = false;
-	}
+  excludeNavTrue() {
+    state.excludeNav = true
+  },
+  excludeNavFalse() {
+    state.excludeNav = false
+  }
 }

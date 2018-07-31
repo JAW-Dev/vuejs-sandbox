@@ -9,10 +9,10 @@
 import { mapGetters } from 'vuex'
 
 export default {
-	computed: {
-		...mapGetters('nav', [
-			'isMobileNavOpen'
-		])
-	}
+  computed: {
+    ...mapGetters('nav', [
+      'isMobileNavOpen'
+    ])
+  }
 }
 </script>

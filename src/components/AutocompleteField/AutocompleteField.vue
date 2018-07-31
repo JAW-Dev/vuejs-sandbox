@@ -40,65 +40,65 @@ export default {
       selected: {},
       optionsShown: false,
       searchFilter: ''
-    };
+    }
   },
   created() {
-    this.$emit('selected', this.selected);
+    this.$emit('selected', this.selected)
   },
   computed: {
     filteredOptions() {
-      const filtered = [];
-      const regOption = new RegExp(this.searchFilter, 'ig');
+      const filtered = []
+      const regOption = new RegExp(this.searchFilter, 'ig')
       for (const option of this.options) {
         if (this.searchFilter.length < 1 || option.name.match(regOption)) {
           if (filtered.length < 6) {
-            filtered.push(option);
+            filtered.push(option)
           }
         }
       }
-      return filtered;
+      return filtered
     }
   },
   methods: {
     selectOption(option) {
-      this.selected = option;
-      this.optionsShown = false;
-      this.searchFilter = this.selected.name;
-      this.$emit('selected', this.selected);
+      this.selected = option
+      this.optionsShown = false
+      this.searchFilter = this.selected.name
+      this.$emit('selected', this.selected)
     },
     showOptions() {
       if (!this.disabled) {
-        this.searchFilter = '';
-        this.optionsShown = true;
+        this.searchFilter = ''
+        this.optionsShown = true
       }
     },
     exit() {
       if (!this.selected.id) {
-        this.selected = {};
-        this.searchFilter = '';
+        this.selected = {}
+        this.searchFilter = ''
       } else {
-        this.searchFilter = this.selected.name;
+        this.searchFilter = this.selected.name
       }
-      this.$emit('selected', this.selected);
-      this.optionsShown = false;
+      this.$emit('selected', this.selected)
+      this.optionsShown = false
     },
     keyMonitor: function(event) {
       if (event.key === 'Enter' && this.filteredOptions[0]) {
-        this.selectOption(this.filteredOptions[0]);
+        this.selectOption(this.filteredOptions[0])
       }
     }
   },
   watch: {
     searchFilter() {
       if (this.filteredOptions.length === 0) {
-        this.selected = {};
+        this.selected = {}
       } else {
-        this.selected = this.filteredOptions[0];
+        this.selected = this.filteredOptions[0]
       }
-      this.$emit('filter', this.searchFilter);
+      this.$emit('filter', this.searchFilter)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
