@@ -46,11 +46,6 @@ export default {
     this.$emit('selected', this.selected);
   },
   computed: {
-    /**
-     * Filter options to the typed input.
-     *
-     * @return void
-     */
     filteredOptions() {
       const filtered = [];
       const regOption = new RegExp(this.searchFilter, 'ig');
@@ -65,35 +60,18 @@ export default {
     }
   },
   methods: {
-    /**
-     * Select the option when clicked.
-     *
-     * @param {array} - The options array.
-     *
-     * @return void
-     */
     selectOption(option) {
       this.selected = option;
       this.optionsShown = false;
       this.searchFilter = this.selected.name;
       this.$emit('selected', this.selected);
     },
-    /**
-     * Display the option results.
-     *
-     * @return void
-     */
     showOptions() {
       if (!this.disabled) {
         this.searchFilter = '';
         this.optionsShown = true;
       }
     },
-    /**
-     * Close results when clicked outside the element.
-     *
-     * @return void
-     */
     exit() {
       if (!this.selected.id) {
         this.selected = {};
@@ -104,13 +82,6 @@ export default {
       this.$emit('selected', this.selected);
       this.optionsShown = false;
     },
-    /**
-     * Filter while typing.
-     *
-     * @param {object} - The event object.
-     *
-     * @return void
-     */
     keyMonitor: function(event) {
       if (event.key === 'Enter' && this.filteredOptions[0]) {
         this.selectOption(this.filteredOptions[0]);
@@ -118,11 +89,6 @@ export default {
     }
   },
   watch: {
-    /**
-     * Watch the search filter for changes.
-     *
-     * @return void
-     */
     searchFilter() {
       if (this.filteredOptions.length === 0) {
         this.selected = {};
@@ -144,17 +110,17 @@ export default {
 }
 .autocomplete__input {
   background: $white;
-  border: 1px solid darken($mercury, 10%);
+  border: 1px solid darken($grey90, 10%);
   padding: 0.2rem 0.5rem;
   width: 100%;
   &:hover {
-    background: darken($mercury, 10%);
+    background: darken($grey90, 10%);
   }
 }
 .autocomplete__results {
   position: absolute;
   background-color: $white;
-  border: 1px solid darken($mercury, 10%);
+  border: 1px solid darken($grey90, 10%);
   width: 100%;
   z-index: 1;
 }
@@ -164,7 +130,7 @@ export default {
   display: block;
   padding: 0.2rem 0.5rem;
   &:hover {
-    background-color: darken($mercury, 10%);
+    background-color: darken($grey90, 10%);
   }
 }
 </style>
