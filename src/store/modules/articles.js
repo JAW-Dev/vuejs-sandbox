@@ -1,6 +1,6 @@
 import { getArticles } from '@/api'
 
-const PROMISE_DELAY = 2000
+const PROMISE_DELAY = 500
 
 export const state = {
   responseData: [],
