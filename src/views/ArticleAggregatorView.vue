@@ -6,14 +6,17 @@
     <div v-if="responseError">
       <p>{{ responseError }}</p>
     </div>
-
-    <ArticleCards v-if="responseData" :responseData="responseData" />
+    <ArticleCards v-if="hasArticles" :responseData="articles" />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import ArticleCards from '@/components/ArticleCard/ArticleCards';
+import axios from 'axios'
+import ArticleCards from '@/components/ArticleCard/ArticleCards'
+import { newsapiKey } from '@/config/apiKeys'
+import { mapGetters, mapMutations } from 'vuex';
+
+const setAuthorLabel = 'Author: '
 
 export default {
   components: {
@@ -21,36 +24,31 @@ export default {
   },
   data() {
     return {
-      responseData: [],
       responseError: ''
     };
-  },
-  created() {
-    let page = 1;
-    const API_KEY = '0b9078098c96403caaddd24cebb47681';
-    const API_URL = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&apiKey=${API_KEY}`;
-    let authorLable = 'Author: ';
-    axios
-      .get(API_URL)
-      .then(response => {
-        response.data.articles.forEach(element => {
-          this.responseData.push(
-            {
-              'url': element.url,
-              'image': element.urlToImage,
-              'description': element.description,
-              'author': element.author,
-              'authorLabel': authorLable,
-              'title': element.title
-            }
-          );
-        });
+	},
+	methods: {
+		...mapMutations('articles', [
+			'saveAuthorLabel'
+		])
+	},
+	computed: {
+		...mapGetters('articles', [
+			'articles',
+			'error',
+			'hasArticles'
+		])
+	},
+	mounted() {
+		this.saveAuthorLabel(setAuthorLabel);
+    if (!this.hasArticles) {
+      this.$store.dispatch('articles/getArticles').catch(error => {
+				this.responseError = error.message;
+        console.error(error);
       })
-      .catch(error => {
-        this.responseError = error.message;
-      });
+		}
   }
-};
+}
 </script>
 
 <style lang="scss">
