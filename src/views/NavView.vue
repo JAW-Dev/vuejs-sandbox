@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import AppRoutes from '@/router/routes/AppRoutes';
-import NavList from '@/components/Nav/NavList';
-import { mapGetters, mapMutations } from 'vuex';
+import AppRoutes from '@/router/routes/AppRoutes'
+import NavList from '@/components/Nav/NavList'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
 	components: {
@@ -26,14 +26,14 @@ export default {
 			'setNavOpenFalse'
 		]),
 		linkIsClicked() {
-			let elements = document.querySelectorAll('.list__item');
+			let elements = document.querySelectorAll('.list__item')
 			// Add a click event for all router links.
 			elements.forEach((element) => {
 				// Close the menu when a router link is clicked.
 				// Set isMobileNavOpen state to false when a router link is clicked.
 				element.addEventListener('click', () => {
-					this.$refs.toggleCheckbox.checked = false;
-					this.setNavOpenFalse();
+					this.$refs.toggleCheckbox.checked = false
+					this.setNavOpenFalse()
 				});
 			})
 		},
@@ -41,7 +41,7 @@ export default {
 			// Update viewportWidth to viewport size when the window is resized.
 			window.addEventListener('resize', () => {
         this.viewportWidth = window.innerWidth
-			});
+			})
 		},
 	},
 	computed: {
@@ -65,7 +65,7 @@ export default {
 	},
   created() {
 		// Set viewportWidth to the viewport width.
-		this.viewportWidth = window.innerWidth
+		this.viewportWidth = window.innerWidth;
 	},
   mounted() {
     this.$nextTick(() => {
@@ -84,7 +84,7 @@ body .app .nav {
 }
 
 .nav {
-	background-color: $mineshaft;
+	background-color: $grey20;
   grid-column: span 1;
   grid-row: span 2;
 	height: auto;
@@ -110,7 +110,7 @@ body .app .nav {
 		@media (max-width: px-to-em(700)) {
 			display: block;
 			&:checked ~ .nav__list {
-				border-right: 1px solid darken($mineshaft, 5%);
+				border-right: 1px solid darken($grey20, 5%);
 				margin: px-to-em(-30) 0 0;
 				overflow: visible;
 				padding: px-to-em(88) 1em 1em;
@@ -137,7 +137,7 @@ body .app .nav {
 	}
 
 	.nav__list {
-		border-right: 1px solid darken($mineshaft, 5%);
+		border-right: 1px solid darken($grey20, 5%);
 		display: block;
     list-style-type: none;
 		margin: 0;
@@ -157,7 +157,7 @@ body .app .nav {
 	}
 
   .list__item {
-		color: $silver;
+		color: $grey70;
 		padding-bottom: 0.5rem;
 		@media (max-width: px-to-em(700)) {
 			opacity: 0;
@@ -166,15 +166,15 @@ body .app .nav {
 	}
 
   a {
-    color: $silver;
+    color: $grey70;
 		text-decoration: none;
 
     &:hover {
-      color: $mercury;
+      color: $grey90;
 		}
 
     &.router-link-exact-active {
-      color: $mercury;
+      color: $grey90;
       cursor: default;
     }
 	}

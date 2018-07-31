@@ -5,14 +5,7 @@
 
 import camelCase from 'lodash/camelCase'
 
-const requireModule = require.context(
-  // Search for files in the current directory
-  '.',
-  // Search for files in subdirectories
-  true,
-  // Include any .js files that are not unit tests
-  /^((?!\.unit\.).)*\.js$/
-)
+const requireModule = require.context( '.', true, /^((?!\.unit\.).)*\.js$/ )
 const root = { modules: {} }
 
 requireModule.keys().forEach(fileName => {

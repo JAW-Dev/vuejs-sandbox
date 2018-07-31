@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Tabs from '@/components/Tabs/Tabs';
-import { mapGetters } from 'vuex';
+import Tabs from '@/components/Tabs/Tabs'
+import { mapGetters } from 'vuex'
 
 export default {
 	components: {
@@ -24,21 +24,21 @@ export default {
 </script>
 
 <style lang="scss">
-$light-mercury: lighten($mercury, 8%);
+$light-mercury: lighten($grey90, 8%);
 .tabs__item {
-	border-left: 1px solid $mineshaft;
-	border-top: 1px solid $mineshaft;
+	border-left: 1px solid $grey20;
+	border-top: 1px solid $grey20;
 	&:first-child {
 		border-top-left-radius: px-to-em(3);
 	}
 	&:last-child {
-		border-right: 1px solid $mineshaft;
+		border-right: 1px solid $grey20;
 		border-top-right-radius: px-to-em(3);
 	}
 }
 a.tabs__item-link {
-	background-color: $silver;
-	border-bottom: 1px solid $mineshaft;
+	background-color: $grey70;
+	border-bottom: 1px solid $grey20;
 	color: inherit;
 	display: block;
 	height: 100%;
@@ -56,10 +56,10 @@ a.tabs__item-link {
 .tabs__content {
 	background-color: $light-mercury;
 	padding: 1em;
-	border-bottom: 1px solid $mineshaft;
+	border-bottom: 1px solid $grey20;
 	border-bottom-right-radius: px-to-em(3);
 	border-bottom-left-radius:  px-to-em(3);
-	border-left: 1px solid $mineshaft;
-	border-right: 1px solid $mineshaft;
+	border-left: 1px solid $grey20;
+	border-right: 1px solid $grey20;
 }
 </style>

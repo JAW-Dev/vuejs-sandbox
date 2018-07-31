@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import AutocompleteField from '@/components/AutocompleteField/AutocompleteField';
-import { mapGetters } from 'vuex';
+import AutocompleteField from '@/components/AutocompleteField/AutocompleteField'
+import { mapGetters } from 'vuex'
 
 export default {
   data() {
     return {
       selected: { name: null, id: null }
-    };
+    }
 	},
 	computed: {
 		...mapGetters('produce', [
@@ -31,11 +31,6 @@ export default {
     AutocompleteField
   },
   methods: {
-    /**
-     * Validate the selection.
-     *
-     * @param {object} selection - The selection object
-     */
     validateSelection(selection) {
       this.selected = selection;
     }
