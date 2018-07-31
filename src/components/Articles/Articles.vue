@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div v-if="!hasArticles">
-      <p>{{ error }}</p>
-    </div>
     <ArticleCards v-if="hasArticles" :responseData="articles" />
   </div>
 </template>
@@ -25,6 +22,7 @@ export default {
   mounted() {
     if (!this.hasArticles) {
       this.$store.dispatch('articles/getArticles')
+      console.error(this.error)
     }
   }
 }
