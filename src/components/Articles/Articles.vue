@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ArticleCards v-if="hasArticles" :responseData="articles" />
+    <ArticleCards v-if="hasArticles" :articles="articles" />
   </div>
 </template>
 
@@ -15,14 +15,12 @@ export default {
   computed: {
     ...mapGetters('articles', [
       'articles',
-      'error',
       'hasArticles'
     ])
   },
   mounted() {
     if (!this.hasArticles) {
       this.$store.dispatch('articles/getArticles')
-      console.error(this.error)
     }
   }
 }
