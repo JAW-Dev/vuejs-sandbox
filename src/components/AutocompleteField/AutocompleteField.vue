@@ -23,11 +23,6 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'AutocompleteField',
   props: {
-    // options: {
-    //   type: Array,
-    //   required: true,
-    //   default: () => []
-    // },
     placeholder: {
       type: String,
       required: false
