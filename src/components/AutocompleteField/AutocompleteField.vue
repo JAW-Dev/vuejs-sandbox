@@ -5,12 +5,11 @@
       @blur="closeList()"
       @keyup="keyMonitor"
       v-model="searchFilter"
-      v-on:selected="validateSelection"
       :placeholder="placeholder" />
 
     <div class="autocomplete__results" v-show="shoeListData">
-      <div class="results__item" @mousedown="selectData(option)" v-for="option of filteredData" :key="option.id">
-        {{ option.name || option.id || '-' }}
+      <div class="results__item" @mousedown="selectData(data)" v-for="data of filteredData" :key="data.id">
+        {{ data.name || data.id || '-' }}
       </div>
     </div>
   </div>
@@ -52,27 +51,30 @@ export default {
     }
   },
   methods: {
-    validateSelection(selection) {
-      this.selected = selection
+    emitSelected() {
+      this.$emit('selected', this.selected)
+    },
+    setSearchFilter(setName) {
+      this.searchFilter = (setName) ? this.selected.name : ''
     },
     selectData(option) {
       this.selected = option
+      this.setSearchFilter(true)
+      this.emitSelected()
       this.shoeListData = false
-      this.searchFilter = this.selected.name
-      this.$emit('selected', this.selected)
     },
     showData() {
-      this.searchFilter = ''
+      this.setSearchFilter()
       this.shoeListData = true
     },
     closeList() {
       if (!this.selected.id) {
         this.selected = {}
-        this.searchFilter = ''
+        this.setSearchFilter()
       } else {
-        this.searchFilter = this.selected.name
+        this.setSearchFilter(true)
       }
-      this.selected = 'selected'
+      this.emitSelected()
       this.shoeListData = false
     },
     keyMonitor: function(event) {
@@ -88,7 +90,6 @@ export default {
       } else {
         this.selected = this.filteredData[0]
       }
-      this.$emit('filter', this.searchFilter)
     }
   }
 }
