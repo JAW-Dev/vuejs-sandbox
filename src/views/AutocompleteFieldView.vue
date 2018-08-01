@@ -5,7 +5,6 @@
     </div>
     <p class="label">Start typing a type of produce</p>
     <AutocompleteField
-      :options="getProduce"
       :disabled="false"
       placeholder="Select Produce"/>
   </div>
@@ -13,14 +12,8 @@
 
 <script>
 import AutocompleteField from '@/components/AutocompleteField/AutocompleteField'
-import { mapGetters } from 'vuex'
 
 export default {
-  computed: {
-    ...mapGetters('produce', [
-      'getProduce'
-    ])
-  },
   components: {
     AutocompleteField
   }

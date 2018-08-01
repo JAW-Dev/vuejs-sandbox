@@ -1,5 +1,5 @@
 <template>
-  <div class="autocomplete" v-if="options">
+  <div class="autocomplete" v-if="getProduce">
     <input class="autocomplete__input"
       @click="showOptions()"
       @blur="exit()"
@@ -18,14 +18,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'AutocompleteField',
   props: {
-    options: {
-      type: Array,
-      required: true,
-      default: () => []
-    },
+    // options: {
+    //   type: Array,
+    //   required: true,
+    //   default: () => []
+    // },
     placeholder: {
       type: String,
       required: false
@@ -47,10 +49,13 @@ export default {
     this.$emit('selected', this.selected)
   },
   computed: {
+    ...mapGetters('produce', [
+      'getProduce'
+    ]),
     filteredOptions() {
       const filtered = []
       const regOption = new RegExp(this.searchFilter, 'ig')
-      for (const option of this.options) {
+      for (const option of this.getProduce) {
         if (this.searchFilter.length < 1 || option.name.match(regOption)) {
           if (filtered.length < 6) {
             filtered.push(option)
