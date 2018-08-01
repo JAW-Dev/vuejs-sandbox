@@ -34,9 +34,6 @@ export default {
       searchFilter: ''
     }
   },
-  created() {
-    this.$emit('selected', this.selected)
-  },
   computed: {
     ...mapGetters('produce', [
       'getProduce'
