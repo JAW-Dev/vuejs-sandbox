@@ -1,8 +1,7 @@
 import vuex from 'vuex'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Articles from '@/components/Articles/Articles'
-import TestHelpers from '@/../tests/helpers'
-// import { state, getters, mutations, actions } from '@/store/modules/articles'
+// import TestHelpers from '@/../tests/helpers'
 
 const localVue = createLocalVue()
 localVue.use(vuex)
@@ -10,17 +9,25 @@ localVue.use(vuex)
 describe('Article.vue', () => {
   let wrapper
   let store
-  // eslint-disable-next-line
-  let h
+  // var h
   beforeEach(() => {
-    store = new vuex.Store({})
+    store = new vuex.Store({
+      modules: {
+        articles: {
+          namespaced: true,
+          getters: {
+            articles: () => [],
+            getArticles: () => [],
+            hasArticles: () => true
+          }
+        }
+      }
+    })
     wrapper = shallowMount(Articles, {
       localVue,
-      store,
-      mocks: {},
-      stubs: {}
+      store
     })
-    h = new TestHelpers(wrapper, expect)
+    // h = new TestHelpers(wrapper, expect)
   })
 
   it('Article component mounts without errors', () => {
