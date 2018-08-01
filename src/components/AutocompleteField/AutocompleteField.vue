@@ -1,15 +1,15 @@
 <template>
   <div class="autocomplete" v-if="getProduce">
     <input class="autocomplete__input"
-      @click="showOptions()"
-      @blur="exit()"
+      @click="showData()"
+      @blur="closeList()"
       @keyup="keyMonitor"
       v-model="searchFilter"
       v-on:selected="validateSelection"
       :placeholder="placeholder" />
 
-    <div class="autocomplete__results" v-show="optionsShown">
-      <div class="results__item" @mousedown="selectOption(option)" v-for="option of filteredOptions" :key="option.id">
+    <div class="autocomplete__results" v-show="shoeListData">
+      <div class="results__item" @mousedown="selectData(option)" v-for="option of filteredData" :key="option.id">
         {{ option.name || option.id || '-' }}
       </div>
     </div>
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       selected: { name: null, id: null },
-      optionsShown: false,
+      shoeListData: false,
       searchFilter: ''
     }
   },
@@ -38,13 +38,13 @@ export default {
     ...mapGetters('produce', [
       'getProduce'
     ]),
-    filteredOptions() {
+    filteredData() {
       const filtered = []
       const regOption = new RegExp(this.searchFilter, 'ig')
-      for (const option of this.getProduce) {
-        if (this.searchFilter.length < 1 || option.name.match(regOption)) {
+      for (const data of this.getProduce) {
+        if (this.searchFilter.length < 1 || data.name.match(regOption)) {
           if (filtered.length < 6) {
-            filtered.push(option)
+            filtered.push(data)
           }
         }
       }
@@ -55,38 +55,38 @@ export default {
     validateSelection(selection) {
       this.selected = selection
     },
-    selectOption(option) {
+    selectData(option) {
       this.selected = option
-      this.optionsShown = false
+      this.shoeListData = false
       this.searchFilter = this.selected.name
       this.$emit('selected', this.selected)
     },
-    showOptions() {
+    showData() {
       this.searchFilter = ''
-      this.optionsShown = true
+      this.shoeListData = true
     },
-    exit() {
+    closeList() {
       if (!this.selected.id) {
         this.selected = {}
         this.searchFilter = ''
       } else {
         this.searchFilter = this.selected.name
       }
-      this.$emit('selected', this.selected)
-      this.optionsShown = false
+      this.selected = 'selected'
+      this.shoeListData = false
     },
     keyMonitor: function(event) {
-      if (event.key === 'Enter' && this.filteredOptions[0]) {
-        this.selectOption(this.filteredOptions[0])
+      if (event.key === 'Enter' && this.filteredData[0]) {
+        this.selectData(this.filteredData[0])
       }
     }
   },
   watch: {
     searchFilter() {
-      if (this.filteredOptions.length === 0) {
+      if (this.filteredData.length === 0) {
         this.selected = {}
       } else {
-        this.selected = this.filteredOptions[0]
+        this.selected = this.filteredData[0]
       }
       this.$emit('filter', this.searchFilter)
     }
