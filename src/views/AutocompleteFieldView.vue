@@ -6,7 +6,6 @@
     <p class="label">Start typing a type of produce</p>
     <AutocompleteField
       :options="getProduce"
-      v-on:selected="validateSelection"
       :disabled="false"
       placeholder="Select Produce"/>
   </div>
@@ -17,11 +16,6 @@ import AutocompleteField from '@/components/AutocompleteField/AutocompleteField'
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      selected: { name: null, id: null }
-    }
-  },
   computed: {
     ...mapGetters('produce', [
       'getProduce'
@@ -29,11 +23,6 @@ export default {
   },
   components: {
     AutocompleteField
-  },
-  methods: {
-    validateSelection(selection) {
-      this.selected = selection
-    }
   }
 }
 </script>

@@ -5,6 +5,7 @@
       @blur="exit()"
       @keyup="keyMonitor"
       v-model="searchFilter"
+      v-on:selected="validateSelection"
       :disabled="disabled"
       :placeholder="placeholder" />
 
@@ -37,7 +38,7 @@ export default {
   },
   data() {
     return {
-      selected: {},
+      selected: { name: null, id: null },
       optionsShown: false,
       searchFilter: ''
     }
@@ -60,6 +61,9 @@ export default {
     }
   },
   methods: {
+    validateSelection(selection) {
+      this.selected = selection
+    },
     selectOption(option) {
       this.selected = option
       this.optionsShown = false
