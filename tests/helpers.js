@@ -4,9 +4,8 @@ class TestHelpers {
     this.expect = expect
   }
 
-  see(text, selector) {
-    let wrap = selector ? this.wrapper.find(selector) : this.wrapper
-    this.expect(wrap.html()).toContain(text)
+  containsText(selector, text) {
+    this.expect(this.find(selector).html()).toContain(text)
   }
   doNotSee(text) {
     this.expect(this.wrapper.html()).not.toContain(text)
