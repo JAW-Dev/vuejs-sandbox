@@ -6,7 +6,6 @@
       @keyup="keyMonitor"
       v-model="searchFilter"
       v-on:selected="validateSelection"
-      :disabled="disabled"
       :placeholder="placeholder" />
 
     <div class="autocomplete__results" v-show="optionsShown">
@@ -26,11 +25,6 @@ export default {
     placeholder: {
       type: String,
       required: false
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-      default: false
     }
   },
   data() {
@@ -71,10 +65,8 @@ export default {
       this.$emit('selected', this.selected)
     },
     showOptions() {
-      if (!this.disabled) {
-        this.searchFilter = ''
-        this.optionsShown = true
-      }
+      this.searchFilter = ''
+      this.optionsShown = true
     },
     exit() {
       if (!this.selected.id) {

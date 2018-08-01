@@ -4,9 +4,7 @@
       <h1>AutoCompete</h1>
     </div>
     <p class="label">Start typing a type of produce</p>
-    <AutocompleteField
-      :disabled="false"
-      placeholder="Select Produce"/>
+    <AutocompleteField placeholder="Select Produce"/>
   </div>
 </template>
 
