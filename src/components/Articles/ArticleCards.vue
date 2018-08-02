@@ -32,6 +32,24 @@ export default {
       required: true,
       default: () => []
     }
+  },
+  data() {
+    return {
+      options: {
+        showImage: true,
+        linkImage: true,
+        showAuthor: true,
+        linkAuthor: true,
+        authorLabel: 'Author: ',
+        showDate: true,
+        linkDate: true,
+        dateLabel: 'Published On: ',
+        showTitle: true,
+        linkTitle: true,
+        showDescription: true,
+        linkDescription: true
+      }
+    }
   }
 }
 </script>
