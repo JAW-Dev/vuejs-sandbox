@@ -3,16 +3,28 @@
     <div class="title">
       <h1>Article Aggregator</h1>
     </div>
-    <Articles />
+    <Articles v-if="hasArticles" :articles="articles"/>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Articles from '@/components/Articles/Articles'
 
 export default {
   components: {
     Articles
+  },
+  computed: {
+    ...mapGetters('articles', [
+      'articles',
+      'hasArticles'
+    ])
+  },
+  mounted() {
+    if (!this.hasArticles) {
+      this.$store.dispatch('articles/getArticles')
+    }
   }
 }
 </script>
