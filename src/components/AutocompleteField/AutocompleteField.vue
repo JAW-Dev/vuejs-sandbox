@@ -1,53 +1,38 @@
 <template>
-  <div class="autocomplete" v-if="getProduce">
+  <div class="autocomplete" v-if="listData">
     <input class="autocomplete__input"
       @click="showData()"
       @blur="closeList()"
       @keyup="keyMonitor"
       v-model="searchFilter"
-      :placeholder="placeholder" />
-
-    <div class="autocomplete__results" v-show="shoeListData">
-      <div class="results__item" @mousedown="selectData(data)" v-for="data of filteredData" :key="data.id">
-        {{ data.name || data.id || '-' }}
-      </div>
-    </div>
+      :placeholder="assignedOptions.placeholderText" />
+    <ResultsList v-show="showListData" :listData="listData" :options="assignedOptions" />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import ResultsList from './ResultsList'
 
 export default {
-  name: 'AutocompleteField',
+  name: 'autocomplete-field',
+  components: {
+    ResultsList
+  },
   props: {
-    placeholder: {
-      type: String,
+    listData: {
+      type: Array,
+      required: true
+    },
+    options: {
+      type: Object,
       required: false
     }
   },
   data() {
     return {
       selected: { name: null, id: null },
-      shoeListData: false,
+      showListData: false,
       searchFilter: ''
-    }
-  },
-  computed: {
-    ...mapGetters('produce', [
-      'getProduce'
-    ]),
-    filteredData() {
-      const filtered = []
-      const regOption = new RegExp(this.searchFilter, 'ig')
-      for (const data of this.getProduce) {
-        if (this.searchFilter.length < 1 || data.name.match(regOption)) {
-          if (filtered.length < 6) {
-            filtered.push(data)
-          }
-        }
-      }
-      return filtered
     }
   },
   methods: {
@@ -61,11 +46,11 @@ export default {
       this.selected = option
       this.setSearchFilter(true)
       this.emitSelected()
-      this.shoeListData = false
+      this.showListData = false
     },
     showData() {
       this.setSearchFilter()
-      this.shoeListData = true
+      this.showListData = true
     },
     closeList() {
       if (!this.selected.id) {
@@ -75,7 +60,7 @@ export default {
         this.setSearchFilter(true)
       }
       this.emitSelected()
-      this.shoeListData = false
+      this.showListData = false
     },
     keyMonitor: function(event) {
       if (event.key === 'Enter' && this.filteredData[0]) {
@@ -83,13 +68,12 @@ export default {
       }
     }
   },
-  watch: {
-    searchFilter() {
-      if (this.filteredData.length === 0) {
-        this.selected = {}
-      } else {
-        this.selected = this.filteredData[0]
-      }
+  computed: {
+    assignedOptions() {
+      return Object.assign({
+        placeholderText: 'Select Items',
+        resultAmount: 6
+      }, this.options)
     }
   }
 }
