@@ -1,26 +1,17 @@
 import { shallowMount } from '@vue/test-utils'
 import ArticleCards from '@/components/Articles/ArticleCards'
 import TestHelpers from '@/../tests/helpers'
+import { articles, options } from '@/../tests/dummy-data'
 
 describe('ArticleCards.vue', () => {
   let wrapper
   // eslint-disable-next-line
   var h
-  let articles = [
-    {
-      'author': 'author',
-      'authorLabel': 'authorLabel',
-      'description': 'description',
-      'image': 'image',
-      'title': 'title',
-      'url': 'url',
-      'date': 'date'
-    }
-  ]
   beforeEach(() => {
     wrapper = shallowMount(ArticleCards, {
       propsData: {
-        articles: articles
+        articles: articles,
+        options: options
       }
     })
     h = new TestHelpers(wrapper, expect)
