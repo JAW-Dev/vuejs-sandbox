@@ -6,6 +6,7 @@
 import ArticleCards from './ArticleCards'
 
 export default {
+  name: 'articles',
   components: {
     ArticleCards
   },
