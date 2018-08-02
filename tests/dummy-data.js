@@ -24,6 +24,16 @@ export const options = {
       ID: 'card__image-link',
       classes: 'card__image-link',
       attributes: {}
+    },
+    imageWrapper: {
+      ID: 'card__image-wrapper',
+      classes: 'card__image-wrapper',
+      attributes: {}
+    },
+    imageCard: {
+      ID: 'card__image',
+      classes: 'card__image',
+      attributes: {}
     }
   },
   showAuthor: true,

@@ -21,15 +21,25 @@ export default {
         articles: {
           ID: 'articles',
           classes: 'articles test',
-          attributes: {'data-test': 'test'}
+          attributes: {'data-test': 'articles'}
         },
         image: {
           showImage: true,
           linkImage: true,
           imageLink: {
-            ID: 'articles',
+            ID: 'card__image-link',
             classes: 'card__image-link',
-            attributes: {'data-test': 'test'}
+            attributes: {'data-test': 'card__image-link'}
+          },
+          imageWrapper: {
+            ID: 'card__image-wrapper',
+            classes: 'card__image-wrapper',
+            attributes: {'data-test': 'card__image-wrapper'}
+          },
+          imageCard: {
+            ID: 'card__image',
+            classes: 'card__image',
+            attributes: {'data-test': 'card__image'}
           }
         },
         showAuthor: true,

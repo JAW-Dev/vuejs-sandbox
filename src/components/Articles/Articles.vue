@@ -33,9 +33,19 @@ export default {
           showImage: true,
           linkImage: true,
           imageLink: {
-            ID: 'articles',
-            classes: 'card__image-link',
-            attributes: {'data-test': 'test'}
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          imageWrapper: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          imageCard: {
+            ID: '',
+            classes: '',
+            attributes: {}
           }
         },
         showAuthor: true,

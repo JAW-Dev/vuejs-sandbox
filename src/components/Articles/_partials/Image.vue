@@ -2,12 +2,23 @@
   <card-link
     :id="options.image.imageLink.ID"
     :class="options.image.imageLink.classes"
-    v-bind="options.articles.attributes"
+    v-bind="options.image.imageLink.attributes"
     :href="article.url"
     :renderLink="renderLink"
     :renderElement="renderElement">
-    <picture class="card__image-wrapper" slot="content" v-if="renderImage">
-      <img class="card__image" :src="article.image" :alt="article.description" v-if="renderImage">
+    <picture
+      :id="options.image.imageWrapper.ID"
+      :class="options.image.imageWrapper.classes"
+      v-bind="options.image.imageWrapper.attributes"
+      v-if="renderImage"
+      slot="content">
+      <img
+        :id="options.image.imageCard.ID"
+        :class="options.image.imageCard.classes"
+        v-bind="options.image.imageCard.attributes"
+        :src="article.image"
+        :alt="article.description"
+        v-if="renderImage">
     </picture>
   </card-link>
 </template>
