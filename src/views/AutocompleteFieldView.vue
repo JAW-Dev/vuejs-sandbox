@@ -4,16 +4,30 @@
       <h1>AutoCompete</h1>
     </div>
     <p class="label">Start typing a type of produce</p>
-    <AutocompleteField :placeholder="'Select Produce'"/>
+    <AutocompleteField :listData="getProduce" :options="options"/>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AutocompleteField from '@/components/AutocompleteField/AutocompleteField'
 
 export default {
   components: {
     AutocompleteField
+  },
+  data() {
+    return {
+      options: {
+        placeholderText: 'Select Produce',
+        resultAmount: 10
+      }
+    }
+  },
+  computed: {
+    ...mapGetters('produce', [
+      'getProduce'
+    ])
   }
 }
 </script>
