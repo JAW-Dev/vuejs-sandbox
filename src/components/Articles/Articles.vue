@@ -17,14 +17,27 @@ export default {
     },
     options: {
       type: Object,
-      required: false
+      required: false,
+      default: () => {}
     }
   },
   computed: {
     assignedOptions() {
       return Object.assign({
-        showImage: true,
-        linkImage: true,
+        articles: {
+          ID: 'articles',
+          classes: 'articles test',
+          attributes: {}
+        },
+        image: {
+          showImage: true,
+          linkImage: true,
+          imageLink: {
+            ID: 'articles',
+            classes: 'card__image-link',
+            attributes: {'data-test': 'test'}
+          }
+        },
         showAuthor: true,
         linkAuthor: true,
         authorLabel: 'Author: ',

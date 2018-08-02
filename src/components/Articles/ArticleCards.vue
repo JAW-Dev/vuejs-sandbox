@@ -1,11 +1,15 @@
 <template>
-  <section class="articles" v-if="articles">
+  <section
+    :id="options.articles.ID"
+    :class="options.articles.classes"
+    v-bind="options.articles.attributes"
+    v-if="articles">
     <article class="article__card" v-if="articles" v-for="(article, index) in articles" :key="index">
-      <card-image :article="article"/>
-      <card-author :article="article"/>
-      <card-date :article="article"/>
-      <card-title :article="article"/>
-      <card-description :article="article"/>
+      <card-image v-if="options.image.showImage" :article="article" :options="options" />
+      <card-author :article="article" :options="options" />
+      <card-date :article="article" :options="options" />
+      <card-title :article="article" :options="options" />
+      <card-description :article="article" :options="options" />
     </article>
   </section>
 </template>
@@ -31,24 +35,11 @@ export default {
       type: Array,
       required: true,
       default: () => []
-    }
-  },
-  data() {
-    return {
-      options: {
-        showImage: true,
-        linkImage: true,
-        showAuthor: true,
-        linkAuthor: true,
-        authorLabel: 'Author: ',
-        showDate: true,
-        linkDate: true,
-        dateLabel: 'Published On: ',
-        showTitle: true,
-        linkTitle: true,
-        showDescription: true,
-        linkDescription: true
-      }
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => {}
     }
   }
 }

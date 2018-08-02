@@ -3,7 +3,7 @@
     <div class="title">
       <h1>Article Aggregator</h1>
     </div>
-    <Articles v-if="hasArticles" :articles="articles"/>
+    <Articles v-if="hasArticles" :articles="articles" :options="options"/>
   </div>
 </template>
 
@@ -14,6 +14,36 @@ import Articles from '@/components/Articles/Articles'
 export default {
   components: {
     Articles
+  },
+  data() {
+    return {
+      options: {
+        articles: {
+          ID: 'articles',
+          classes: 'articles test',
+          attributes: {'data-test': 'test'}
+        },
+        image: {
+          showImage: true,
+          linkImage: true,
+          imageLink: {
+            ID: 'articles',
+            classes: 'card__image-link',
+            attributes: {'data-test': 'test'}
+          }
+        },
+        showAuthor: true,
+        linkAuthor: true,
+        authorLabel: 'Author: ',
+        showDate: true,
+        linkDate: true,
+        dateLabel: 'Published On: ',
+        showTitle: true,
+        linkTitle: true,
+        showDescription: true,
+        linkDescription: true
+      }
+    }
   },
   computed: {
     ...mapGetters('articles', [
