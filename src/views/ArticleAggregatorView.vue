@@ -72,6 +72,7 @@ export default {
 
   .card__title,
   .card__author,
+  .card__date,
   .card__description {
     padding: 0 0.5rem;
   }

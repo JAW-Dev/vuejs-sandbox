@@ -1,25 +1,31 @@
 <template>
   <section class="articles" v-if="articles">
     <article class="article__card" v-if="articles" v-for="(article, index) in articles" :key="index">
-      <a class="card__image-link" v-if="article.url" :href="article.url">
-        <picture class="card__image-wrapper" v-if="article.image">
-          <img class="card__image" v-if="article.image" :src="article.image" :alt="article.description">
-        </picture>
-      </a>
-      <p class="card__author" v-if="article.author">
-        <span class="card__author-label" v-if="article.authorLabel">{{ article.authorLabel }}</span>{{ article.author }}
-      </p>
-      <h3 class="card__title" v-if="article.title">
-        <a class="card__title-link" v-if="article.url" :href="article.url">{{ article.title }}</a>
-      </h3>
-      <p class="card__description" v-if="article.description">{{ article.description }}</p>
+      <card-image :article="article"/>
+      <card-author :article="article"/>
+      <card-date :article="article"/>
+      <card-title :article="article"/>
+      <card-description :article="article"/>
     </article>
   </section>
 </template>
 
 <script>
+import Image from './_partials/Image'
+import Author from './_partials/Author'
+import Date from './_partials/Date'
+import Title from './_partials/Title'
+import Description from './_partials/Description'
+
 export default {
   name: 'article-cards',
+  components: {
+    'card-image': Image,
+    'card-author': Author,
+    'card-date': Date,
+    'card-title': Title,
+    'card-description': Description
+  },
   props: {
     articles: {
       type: Array,

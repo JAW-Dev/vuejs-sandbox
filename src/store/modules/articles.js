@@ -24,7 +24,8 @@ export const mutations = {
           'description': element.description,
           'author': element.author,
           'authorLabel': state.authorLabel,
-          'title': element.title
+          'title': element.title,
+          'date': element.publishedAt
         }
       )
     })
