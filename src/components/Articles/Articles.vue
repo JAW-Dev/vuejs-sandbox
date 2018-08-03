@@ -30,11 +30,13 @@ export default {
           attributes: {}
         },
         image: {
+          source: '',
           showImage: true,
           ID: '',
           classes: '',
           attributes: {},
           link: {
+            source: '',
             showLink: true,
             ID: '',
             classes: '',
@@ -47,8 +49,8 @@ export default {
           }
         },
         author: {
+          source: '',
           showAuthor: true,
-          linkAuthor: true,
           ID: '',
           classes: '',
           attributes: {},
@@ -60,6 +62,8 @@ export default {
             attributes: {}
           },
           link: {
+            source: 'authorUrl',
+            showLink: true,
             ID: '',
             classes: '',
             attributes: {}
@@ -70,9 +74,37 @@ export default {
             attributes: {}
           }
         },
-        showDate: true,
-        linkDate: true,
-        dateLabel: 'Published On: ',
+        date: {
+          source: '',
+          showDate: true,
+          ID: '',
+          classes: '',
+          attributes: {},
+          format: {
+            doFormat: true,
+            locale: 'en-US',
+            options: {}
+          },
+          label: {
+            showLabel: true,
+            labelText: '',
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          link: {
+            source: '',
+            showLink: true,
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          text: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          }
+        },
         showTitle: true,
         linkTitle: true,
         showDescription: true,
