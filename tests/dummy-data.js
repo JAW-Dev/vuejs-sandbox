@@ -3,8 +3,8 @@ export const article = {
   'image': 'image',
   'author': 'author',
   'authorUrl': 'authorLink',
-  'date': 'date',
-  'dateLabel': 'dateLabel',
+  'date': '2018-08-03T17:32:14Z',
+  'dateUrl': 'dateUrl',
   'title': 'title',
   'description': 'description'
 }
@@ -18,11 +18,13 @@ export const options = {
     attributes: {'data-test': 'articles'}
   },
   image: {
+    source: 'image',
     showImage: true,
     ID: 'card__image',
     classes: 'card__image',
     attributes: {'data-test': 'card__image'},
     link: {
+      source: 'url',
       showLink: true,
       ID: 'card__image-link',
       classes: 'card__image-link',
@@ -35,6 +37,7 @@ export const options = {
     }
   },
   author: {
+    source: 'author',
     showAuthor: true,
     ID: 'card__author',
     classes: 'card__author',
@@ -47,6 +50,7 @@ export const options = {
       attributes: {'data-test': 'card__author-label'}
     },
     link: {
+      source: 'authorUrl',
       showLink: true,
       ID: 'card__author-link',
       classes: 'card__author-link',
@@ -58,9 +62,41 @@ export const options = {
       attributes: {'data-test': 'card__author-text'}
     }
   },
-  showDate: true,
-  linkDate: true,
-  dateLabel: 'Published On: ',
+  date: {
+    source: 'date',
+    showDate: true,
+    ID: 'card__date',
+    classes: 'card__date',
+    attributes: {'data-test': 'card__date'},
+    format: {
+      doFormat: true,
+      locale: 'en-US',
+      options: {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+    },
+    label: {
+      showLabel: true,
+      labelText: 'Published On: ',
+      ID: 'card__date-label',
+      classes: 'card__date-label',
+      attributes: {'data-test': 'card__date-label'}
+    },
+    link: {
+      source: 'dateUrl',
+      showLink: true,
+      ID: 'card__date-link',
+      classes: 'card__date-link',
+      attributes: {'data-test': 'card__date-link'}
+    },
+    text: {
+      ID: 'card__date-text',
+      classes: 'card__date-text',
+      attributes: {'data-test': 'card__date-text'}
+    }
+  },
   showTitle: true,
   linkTitle: true,
   showDescription: true,
