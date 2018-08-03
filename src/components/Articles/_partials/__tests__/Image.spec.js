@@ -41,4 +41,10 @@ describe('component.vue', () => {
     h.hasAttribute(selector, 'alt')
     h.attributeValueIs(selector, 'alt', article.description)
   })
+
+  it('.card__image-link data is set', () => {
+    let selector = '.card__image-link'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
 })
