@@ -23,7 +23,7 @@
 import { components, props, methods } from '@/mixins/cardElements'
 
 export default {
-  name: 'card-author',
+  name: 'card-title',
   mixins: [components, props, methods]
 }
 </script>
