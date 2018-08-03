@@ -12,6 +12,7 @@ import { mapGetters } from 'vuex'
 import Articles from '@/components/Articles/Articles'
 
 export default {
+  name: 'articles',
   components: {
     Articles
   },
@@ -25,26 +26,45 @@ export default {
         },
         image: {
           showImage: true,
-          linkImage: true,
-          imageLink: {
+          ID: 'card__image',
+          classes: 'card__image',
+          attributes: {'data-test': 'card__image'},
+          link: {
+            showLink: true,
             ID: 'card__image-link',
             classes: 'card__image-link',
             attributes: {'data-test': 'card__image-link'}
           },
-          imageWrapper: {
+          wrapper: {
             ID: 'card__image-wrapper',
             classes: 'card__image-wrapper',
             attributes: {'data-test': 'card__image-wrapper'}
-          },
-          imageCard: {
-            ID: 'card__image',
-            classes: 'card__image',
-            attributes: {'data-test': 'card__image'}
           }
         },
-        showAuthor: true,
-        linkAuthor: true,
-        authorLabel: 'Author: ',
+        author: {
+          showAuthor: true,
+          ID: 'card__author',
+          classes: 'card__author',
+          attributes: {'data-test': 'card__author'},
+          label: {
+            showLabel: true,
+            labelText: 'Author: ',
+            ID: 'card__author-label',
+            classes: 'card__author-label',
+            attributes: {'data-test': 'card__author-label'}
+          },
+          link: {
+            showLink: true,
+            ID: 'card__author-link',
+            classes: 'card__author-link',
+            attributes: {'data-test': 'card__author-link'}
+          },
+          text: {
+            ID: 'card__author-text',
+            classes: 'card__author-text',
+            attributes: {'data-test': 'card__author-text'}
+          }
+        },
         showDate: true,
         linkDate: true,
         dateLabel: 'Published On: ',
