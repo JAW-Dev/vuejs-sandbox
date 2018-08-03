@@ -124,8 +124,25 @@ export default {
             attributes: {}
           }
         },
-        showDescription: true,
-        linkDescription: true
+        description: {
+          source: '',
+          show: true,
+          ID: '',
+          classes: '',
+          attributes: {},
+          link: {
+            source: '',
+            show: true,
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          text: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          }
+        }
       }, this.options)
     }
   }

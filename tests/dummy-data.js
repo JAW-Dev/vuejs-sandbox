@@ -51,9 +51,9 @@ export const options = {
     },
     link: {
       source: 'authorUrl',
-      showLink: true,
+      show: true,
       ID: 'card__author-link',
-      classes: 'card__author-link-test',
+      classes: 'card__author-link',
       attributes: {'data-test': 'card__author-link'}
     },
     text: {
@@ -116,6 +116,23 @@ export const options = {
       attributes: {'data-test': 'card__title-text'}
     }
   },
-  showDescription: true,
-  linkDescription: true
+  description: {
+    source: 'description',
+    show: true,
+    ID: 'card__description',
+    classes: 'card__description',
+    attributes: {'data-test': 'card__description'},
+    link: {
+      source: 'url',
+      show: true,
+      ID: 'card__description-link',
+      classes: 'card__description-link',
+      attributes: {'data-test': 'card__description-link'}
+    },
+    text: {
+      ID: 'card__description-text',
+      classes: 'card__description-text',
+      attributes: {'data-test': 'card__description-text'}
+    }
+  }
 }
