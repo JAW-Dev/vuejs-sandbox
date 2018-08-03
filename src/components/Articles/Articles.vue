@@ -25,32 +25,51 @@ export default {
     assignedOptions() {
       return Object.assign({
         articles: {
-          ID: 'articles',
-          classes: 'articles test',
+          ID: '',
+          classes: '',
           attributes: {}
         },
         image: {
           showImage: true,
-          linkImage: true,
-          imageLink: {
+          ID: '',
+          classes: '',
+          attributes: {},
+          link: {
+            showLink: true,
             ID: '',
             classes: '',
             attributes: {}
           },
-          imageWrapper: {
-            ID: '',
-            classes: '',
-            attributes: {}
-          },
-          imageCard: {
+          wrapper: {
             ID: '',
             classes: '',
             attributes: {}
           }
         },
-        showAuthor: true,
-        linkAuthor: true,
-        authorLabel: 'Author: ',
+        author: {
+          showAuthor: true,
+          linkAuthor: true,
+          ID: '',
+          classes: '',
+          attributes: {},
+          label: {
+            showLabel: true,
+            labelText: 'Author: ',
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          link: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          text: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          }
+        },
         showDate: true,
         linkDate: true,
         dateLabel: 'Published On: ',
