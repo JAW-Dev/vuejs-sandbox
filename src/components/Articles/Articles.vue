@@ -1,14 +1,14 @@
 <template>
-  <ArticleCards v-if="articles" :articles="articles" :options="assignedOptions"/>
+  <article-cards v-if="articles" :articles="articles" :options="assignedOptions"/>
 </template>
 
 <script>
 import ArticleCards from './ArticleCards'
 
 export default {
-  name: 'articles',
+  name: 'articles-cards',
   components: {
-    ArticleCards
+    'article-cards': ArticleCards
   },
   props: {
     articles: {
