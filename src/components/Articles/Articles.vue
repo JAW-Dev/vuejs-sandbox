@@ -31,13 +31,13 @@ export default {
         },
         image: {
           source: '',
-          showImage: true,
+          show: true,
           ID: '',
           classes: '',
           attributes: {},
           link: {
             source: '',
-            showLink: true,
+            show: true,
             ID: '',
             classes: '',
             attributes: {}
@@ -50,12 +50,12 @@ export default {
         },
         author: {
           source: '',
-          showAuthor: true,
+          show: true,
           ID: '',
           classes: '',
           attributes: {},
           label: {
-            showLabel: true,
+            show: true,
             labelText: 'Author: ',
             ID: '',
             classes: '',
@@ -63,7 +63,7 @@ export default {
           },
           link: {
             source: 'authorUrl',
-            showLink: true,
+            show: true,
             ID: '',
             classes: '',
             attributes: {}
@@ -76,7 +76,7 @@ export default {
         },
         date: {
           source: '',
-          showDate: true,
+          show: true,
           ID: '',
           classes: '',
           attributes: {},
@@ -86,7 +86,7 @@ export default {
             options: {}
           },
           label: {
-            showLabel: true,
+            show: true,
             labelText: '',
             ID: '',
             classes: '',
@@ -94,7 +94,7 @@ export default {
           },
           link: {
             source: '',
-            showLink: true,
+            show: true,
             ID: '',
             classes: '',
             attributes: {}
@@ -105,8 +105,25 @@ export default {
             attributes: {}
           }
         },
-        showTitle: true,
-        linkTitle: true,
+        title: {
+          source: '',
+          show: true,
+          ID: '',
+          classes: '',
+          attributes: {},
+          link: {
+            source: '',
+            show: true,
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          text: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          }
+        },
         showDescription: true,
         linkDescription: true
       }, this.options)
