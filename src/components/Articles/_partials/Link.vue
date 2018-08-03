@@ -1,17 +1,22 @@
 <template>
-  <a :id="id" :class="classes" v-bind="attributes" :href="href" v-if="renderLink">
+  <a
+    :id="theId"
+    :class="classes"
+    v-bind="attributes"
+    :href="theHref"
+    v-if="renderLink">
     <slot name="content"></slot>
   </a>
-  <div v-else-if="renderElement">
+  <span v-else>
     <slot name="content"></slot>
-  </div>
+  </span>
 </template>
 
 <script>
 export default {
   name: 'card-link',
   props: {
-    id: {
+    theId: {
       type: String,
       required: false,
       default: () => ''
@@ -22,11 +27,11 @@ export default {
       default: () => ''
     },
     attributes: {
-      type: String,
+      type: Object,
       required: false,
-      default: () => ''
+      default: () => {}
     },
-    href: {
+    theHref: {
       type: String,
       required: false,
       default: () => ''
@@ -35,11 +40,6 @@ export default {
       type: Boolean,
       require: false,
       default: () => true
-    },
-    renderElement: {
-      type: Boolean,
-      require: false,
-      default: () => false
     }
   }
 }
