@@ -21,12 +21,12 @@ export const mutations = {
         {
           'url': element.url,
           'image': element.urlToImage,
-          'description': element.description,
           'author': element.author,
-          'authorLabel': state.authorLabel,
           'authorUrl': element.url,
+          'date': element.publishedAt,
+          'dateUrl': element.url,
           'title': element.title,
-          'date': element.publishedAt
+          'description': element.description
         }
       )
     })
