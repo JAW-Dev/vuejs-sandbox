@@ -17,30 +17,30 @@ describe('component.vue', () => {
     h = new TestHelpers(wrapper, expect)
   })
 
-  // it('Author component mounts without errors', () => {
-  //   expect(wrapper.isVueInstance()).toBeTruthy()
-  // })
+  it('Author component mounts without errors', () => {
+    expect(wrapper.isVueInstance()).toBeTruthy()
+  })
 
-  // it('.card__title data is set', () => {
-  //   let selector = '.card__title'
-  //   h.domHas(selector)
-  //   h.domHasLength(selector, 1)
-  // })
+  it('.card__title data is set', () => {
+    let selector = '.card__title'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
 
-  // it('.card__title-text data is set', () => {
-  //   let selector = '.card__title-text'
-  //   h.domHas(selector)
-  //   h.domHasLength(selector, 1)
-  // })
+  it('.card__title-text data is set', () => {
+    let selector = '.card__title-text'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
 
-  // it('.card__title-text contains text', () => {
-  //   let selector = '.card__title-text'
-  //   h.containsText(selector, article[options.title.source])
-  // })
+  it('.card__title-text contains text', () => {
+    let selector = '.card__title-text'
+    h.containsText(selector, article[options.title.source])
+  })
 
-  // it('.card__title-link data is set', () => {
-  //   let selector = '.card__title-link'
-  //   h.domHas(selector)
-  //   h.domHasLength(selector, 1)
-  // })
+  it('.card__title-link data is set', () => {
+    let selector = '.card__title-link'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
 })
