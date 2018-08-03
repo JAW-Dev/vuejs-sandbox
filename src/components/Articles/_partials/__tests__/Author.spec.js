@@ -48,4 +48,10 @@ describe('component.vue', () => {
     let selector = '.card__author-text'
     h.containsText(selector, article[options.author.source])
   })
+
+  it('.card__author-link data is set', () => {
+    let selector = '.card__author-link'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
 })
