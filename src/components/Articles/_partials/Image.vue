@@ -1,66 +1,31 @@
 <template>
   <card-link
-    :id="options.image.imageLink.ID"
-    :class="options.image.imageLink.classes"
-    v-bind="options.image.imageLink.attributes"
-    :href="article.url"
-    :renderLink="renderLink"
-    :renderElement="renderElement">
+    :theId="options.image.link.ID"
+    :classes="options.image.link.classes"
+    :attributes="options.image.link.attributes"
+    :theHref="article.url"
+    :renderLink="renderElement(article.image && options.image.link.showLink)">
     <picture
-      :id="options.image.imageWrapper.ID"
-      :class="options.image.imageWrapper.classes"
-      v-bind="options.image.imageWrapper.attributes"
-      v-if="renderImage"
+      :id="options.image.wrapper.ID"
+      :class="options.image.wrapper.classes"
+      v-bind="options.image.wrapper.attributes"
+      v-if="this.article.image && this.options.image.showImage"
       slot="content">
       <img
-        :id="options.image.imageCard.ID"
-        :class="options.image.imageCard.classes"
-        v-bind="options.image.imageCard.attributes"
+        :id="options.image.ID"
+        :class="options.image.classes"
+        v-bind="options.image.attributes"
         :src="article.image"
-        :alt="article.description"
-        v-if="renderImage">
+        :alt="article.description">
     </picture>
   </card-link>
 </template>
 
 <script>
-import Link from './Link'
+import { renderElement, props, link } from '@/mixins/cardElements'
 
 export default {
   name: 'card-image',
-  components: {
-    'card-link': Link
-  },
-  props: {
-    article: {
-      type: Object,
-      default: () => {}
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => {}
-    }
-  },
-  computed: {
-    renderLink() {
-      if (this.article.image && this.options.image.linkImage) {
-        return true
-      }
-      return false
-    },
-    renderElement() {
-      if (this.article.image && !this.options.image.linkImage && this.options.image.showImage) {
-        return true
-      }
-      return false
-    },
-    renderImage() {
-      if (this.article.image && this.options.image.showImage) {
-        return true
-      }
-      return false
-    }
-  }
+  mixins: [renderElement, props, link]
 }
 </script>
