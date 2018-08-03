@@ -27,11 +27,6 @@ describe('component.vue', () => {
     h.domHasLength(selector, 1)
   })
 
-  it('.card__author contains text', () => {
-    let selector = '.card__author'
-    h.containsText(selector, article.author)
-  })
-
   it('.card__author-label data is set', () => {
     let selector = '.card__author-label'
     h.domHas(selector)

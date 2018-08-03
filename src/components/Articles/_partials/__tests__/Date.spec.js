@@ -1,26 +1,20 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Date from '@/components/Articles/_partials/Date'
 import TestHelpers from '@/../tests/helpers'
+import { article, options } from '@/../tests/dummy-data'
+import { filters } from '@/mixins/cardElements'
 
 describe('component.vue', () => {
   let wrapper
   // eslint-disable-next-line
   let h
-  let article = {
-    'author': 'author',
-    'authorLabel': 'authorLabel',
-    'description': 'description',
-    'image': 'image',
-    'title': 'title',
-    'url': 'url',
-    'date': 'date',
-    'dateLabel': 'dateLabel'
-  }
   beforeEach(() => {
-    wrapper = shallowMount(Date, {
+    wrapper = mount(Date, {
       propsData: {
-        article: article
-      }
+        article: article,
+        options: options
+      },
+      mixins: [filters]
     })
     h = new TestHelpers(wrapper, expect)
   })
@@ -35,11 +29,6 @@ describe('component.vue', () => {
     h.domHasLength(selector, 1)
   })
 
-  it('.card__date contains text', () => {
-    let selector = '.card__date'
-    h.containsText(selector, article.date)
-  })
-
   it('.card__date-label data is set', () => {
     let selector = '.card__date-label'
     h.domHas(selector)
@@ -48,6 +37,24 @@ describe('component.vue', () => {
 
   it('.card__date-label contains text', () => {
     let selector = '.card__date-label'
-    h.containsText(selector, article.dateLabel)
+    h.containsText(selector, options.date.label.labelText)
+  })
+
+  it('.card__date-text data is set', () => {
+    let selector = '.card__date-text'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
+
+  it('.card__date-text contains text', () => {
+    let selector = '.card__date-text'
+    let text = 'August 3, 2018'
+    h.containsText(selector, text)
+  })
+
+  it('.card__date-link data is set', () => {
+    let selector = '.card__date-link'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
   })
 })
