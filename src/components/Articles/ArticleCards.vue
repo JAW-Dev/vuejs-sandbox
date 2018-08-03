@@ -5,7 +5,7 @@
     v-bind="options.articles.attributes"
     v-if="articles">
     <article class="article__card" v-if="articles" v-for="(article, index) in articles" :key="index">
-      <card-image v-if="options.image.showImage" :article="article" :options="options" />
+      <card-image :article="article" :options="options" />
       <card-author :article="article" :options="options" />
       <card-date :article="article" :options="options" />
       <card-title :article="article" :options="options" />
