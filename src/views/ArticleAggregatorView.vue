@@ -26,13 +26,13 @@ export default {
         },
         image: {
           source: 'image',
-          showImage: true,
+          show: true,
           ID: 'card__image',
           classes: 'card__image',
           attributes: {'data-test': 'card__image'},
           link: {
             source: 'url',
-            showLink: true,
+            show: true,
             ID: 'card__image-link',
             classes: 'card__image-link',
             attributes: {'data-test': 'card__image-link'}
@@ -45,12 +45,12 @@ export default {
         },
         author: {
           source: 'author',
-          showAuthor: true,
+          show: true,
           ID: 'card__author',
           classes: 'card__author',
           attributes: {'data-test': 'card__author'},
           label: {
-            showLabel: true,
+            show: true,
             labelText: 'Author: ',
             ID: 'card__author-label',
             classes: 'card__author-label',
@@ -58,7 +58,7 @@ export default {
           },
           link: {
             source: 'authorUrl',
-            showLink: true,
+            show: true,
             ID: 'card__author-link',
             classes: 'card__author-link',
             attributes: {'data-test': 'card__author-link'}
@@ -71,7 +71,7 @@ export default {
         },
         date: {
           source: 'date',
-          showDate: true,
+          show: true,
           ID: 'card__date',
           classes: 'card__date',
           attributes: {'data-test': 'card__date'},
@@ -85,7 +85,7 @@ export default {
             }
           },
           label: {
-            showLabel: true,
+            show: true,
             labelText: 'Published On: ',
             ID: 'card__date-label',
             classes: 'card__date-label',
@@ -93,7 +93,7 @@ export default {
           },
           link: {
             source: 'dateUrl',
-            showLink: true,
+            show: true,
             ID: 'card__date-link',
             classes: 'card__date-link',
             attributes: {'data-test': 'card__date-link'}
@@ -104,8 +104,25 @@ export default {
             attributes: {'data-test': 'card__date-text'}
           }
         },
-        showTitle: true,
-        linkTitle: true,
+        title: {
+          source: 'title',
+          show: true,
+          ID: 'card__title',
+          classes: 'card__title',
+          attributes: {'data-test': 'card__title'},
+          link: {
+            source: 'url',
+            show: true,
+            ID: 'card__title-link',
+            classes: 'card__title-link',
+            attributes: {'data-test': 'card__title-link'}
+          },
+          text: {
+            ID: 'card__title-text',
+            classes: 'card__title-text',
+            attributes: {'data-test': 'card__title-text'}
+          }
+        },
         showDescription: true,
         linkDescription: true
       }
