@@ -17,7 +17,7 @@ describe('component.vue', () => {
     h = new TestHelpers(wrapper, expect)
   })
 
-  it('Author component mounts without errors', () => {
+  it('Title component mounts without errors', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
