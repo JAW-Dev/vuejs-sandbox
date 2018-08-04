@@ -141,6 +141,25 @@ export default {
             classes: 'card__description-text',
             attributes: {'data-test': 'card__description-text'}
           }
+        },
+        readMore: {
+          show: true,
+          moreText: 'Read More',
+          ID: 'card__readMore',
+          classes: 'card__readMore',
+          attributes: {'data-test': 'card__readMore'},
+          link: {
+            source: 'url',
+            show: true,
+            ID: 'card__readMore-link',
+            classes: 'card__readMore-link',
+            attributes: {'data-test': 'card__readMore-link'}
+          },
+          text: {
+            ID: 'card__readMore-text',
+            classes: 'card__readMore-text',
+            attributes: {'data-test': 'card__readMore-text'}
+          }
         }
       }
     }
@@ -203,7 +222,8 @@ export default {
   .card__title,
   .card__author,
   .card__date,
-  .card__description {
+  .card__description,
+  .card__readMore {
     padding: 0 0.5rem;
   }
 

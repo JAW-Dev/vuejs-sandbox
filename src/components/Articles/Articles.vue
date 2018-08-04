@@ -132,6 +132,25 @@ export default {
           attributes: {},
           link: {
             source: '',
+            show: false,
+            ID: '',
+            classes: '',
+            attributes: {}
+          },
+          text: {
+            ID: '',
+            classes: '',
+            attributes: {}
+          }
+        },
+        readMore: {
+          show: true,
+          moreText: '',
+          ID: '',
+          classes: '',
+          attributes: {},
+          link: {
+            source: 'url',
             show: true,
             ID: '',
             classes: '',
