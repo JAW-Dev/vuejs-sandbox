@@ -9,7 +9,7 @@
       :classes="options.readMore.link.classes"
       :attributes="options.readMore.link.attributes"
       :theHref="article[options.readMore.link.source]"
-      :renderLink="renderElement(article[options.readMore.link.source] && options.readMore.link.show)">
+      :renderLink="renderElement(getSource(article[options.readMore.link.source]) && options.readMore.link.show)">
       <span
         slot="content"
         :id="options.readMore.text.ID"

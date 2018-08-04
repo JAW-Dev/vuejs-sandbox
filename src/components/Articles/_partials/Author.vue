@@ -3,7 +3,7 @@
     :id="options.author.ID"
     :class="options.author.classes"
     v-bind="options.author.attributes"
-    v-if="options.author.show && article[options.author.source]">
+    v-if="options.author.show && getSource(article[options.author.source])">
     <span
       :id="options.author.label.ID"
       :class="options.author.label.classes"
@@ -14,12 +14,12 @@
       :classes="options.author.link.classes"
       :attributes="options.author.link.attributes"
       :theHref="article[options.author.link.source]"
-      :renderLink="renderElement(article[options.author.link.source] && options.author.link.show)">
+      :renderLink="renderElement(getSource(article[options.author.link.source]) && options.author.link.show)">
       <span
         slot="content"
         :id="options.author.text.ID"
         :class="options.author.text.classes"
-        v-bind="options.author.text.attributes">{{ article[options.author.source] }}</span>
+        v-bind="options.author.text.attributes">{{ getSource(article[options.author.source]) }}</span>
     </card-link>
   </p>
 </template>

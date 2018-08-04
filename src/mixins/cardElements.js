@@ -27,6 +27,12 @@ export const methods = {
         return true
       }
       return false
+    },
+    getSource(source) {
+      if (source) {
+        return source
+      }
+      return false
     }
   }
 }
@@ -34,8 +40,17 @@ export const methods = {
 export const filters = {
   filters: {
     dateFormat(value, format, locale, options) {
-      let date = new Date(value)
-      return (format) ? date.toLocaleDateString(locale, options) : value
+      // Check if string is valid date representation
+      if (Date.parse(value)) {
+        // Convert string to date format
+        let date = new Date(value)
+        if (value) {
+          // If format is set return the formated date,
+          // else return the value string
+          return (format) ? date.toLocaleDateString(locale, options) : value
+        }
+      }
+      return value
     }
   }
 }
