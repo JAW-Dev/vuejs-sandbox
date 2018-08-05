@@ -4,18 +4,18 @@
     :classes="options.image.link.classes"
     :attributes="options.image.link.attributes"
     :theHref="getUrl(options.sources.imageUrl)"
-    :renderLink="renderElement(getUrl(options.sources.imageUrl) && options.image.link.show)">
+    :renderLink="renderElement(getUrl(options.sources.imageUrl) && isSet(options.image.link.show))">
     <picture
       :id="options.image.wrapper.ID"
       :class="options.image.wrapper.classes"
       v-bind="options.image.wrapper.attributes"
-      v-if="getSource(article[options.image.source]) && options.image.show"
+      v-if="getSource(article[options.sources.image]) && isSet(options.image.show)"
       slot="content">
       <img
         :id="options.image.ID"
         :class="options.image.classes"
         v-bind="options.image.attributes"
-        :src="getSource(article[options.image.source])"
+        :src="getSource(article[options.sources.image])"
         :alt="article.description">
     </picture>
   </card-link>

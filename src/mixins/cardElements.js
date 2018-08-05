@@ -35,6 +35,9 @@ export const methods = {
       }
       return ''
     },
+    isSet(source) {
+      return (source) || false
+    },
     getUrl(source) {
       let defaultUrl = this.article[this.options.sources.url]
       let output = (source) || ((defaultUrl) || '')
