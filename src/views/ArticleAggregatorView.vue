@@ -26,8 +26,8 @@ export default {
           date: 'date',
           title: 'title',
           description: 'description',
-          url: 'url'
-          // imageUrl: 'imageUrl',
+          url: 'url',
+          imageUrl: 'imageUrl',
           // authorUrl: 'authorUrl',
           // dateUrl: 'dateUrl',
           // titleUrl: 'titleUrl',

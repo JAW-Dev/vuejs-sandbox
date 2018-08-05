@@ -7,64 +7,7 @@ export const components = {
   }
 }
 
-export const props = {
-  props: {
-    article: {
-      type: Object,
-      default: () => {}
-    },
-    options: {
-      type: Object,
-      required: false,
-      default: () => {}
-    }
-  }
-}
-
-export const methods = {
-  methods: {
-    renderElement(conditional) {
-      if (conditional) {
-        return true
-      }
-      return false
-    },
-    getSource(source) {
-      if (source) {
-        return source
-      }
-      return ''
-    },
-    isSet(source) {
-      return (source) || ''
-    },
-    getUrl(source) {
-      let defaultUrl = this.article[this.options.sources.url]
-      let output = (source) || ((defaultUrl) || '')
-      return output
-    }
-  }
-}
-
-export const filters = {
-  filters: {
-    dateFormat(value, format, locale, options) {
-      // Check if string is valid date representation
-      if (Date.parse(value)) {
-        // Convert string to date format
-        let date = new Date(value)
-        if (value) {
-          // If format is set return the formated date,
-          // else return the value string
-          return (format) ? date.toLocaleDateString(locale, options) : value
-        }
-      }
-      return value
-    }
-  }
-}
-
-export const mergedOptions = {
+export const data = {
   data() {
     return {
       defaults: {
@@ -224,7 +167,67 @@ export const mergedOptions = {
         }
       }
     }
-  },
+  }
+}
+
+export const props = {
+  props: {
+    article: {
+      type: Object,
+      default: () => {}
+    },
+    options: {
+      type: Object,
+      required: false,
+      default: () => {}
+    }
+  }
+}
+
+export const methods = {
+  methods: {
+    renderElement(conditional) {
+      if (conditional) {
+        return true
+      }
+      return false
+    },
+    getSource(source) {
+      if (source) {
+        return source
+      }
+      return ''
+    },
+    isSet(source) {
+      return (source) || ''
+    },
+    getUrl(source) {
+      let defaultUrl = this.article[this.options.sources.url]
+      let output = (source) || ((defaultUrl) || '')
+      return output
+    }
+  }
+}
+
+export const filters = {
+  filters: {
+    dateFormat(value, format, locale, options) {
+      // Check if string is valid date representation
+      if (Date.parse(value)) {
+        // Convert string to date format
+        let date = new Date(value)
+        if (value) {
+          // If format is set return the formated date,
+          // else return the value string
+          return (format) ? date.toLocaleDateString(locale, options) : value
+        }
+      }
+      return value
+    }
+  }
+}
+
+export const computed = {
   computed: {
     mergedOptions() {
       return merge.all([this.defaults, this.options])
