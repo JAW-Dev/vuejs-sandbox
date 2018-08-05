@@ -88,6 +88,12 @@ export const mergedOptions = {
             ID: 'card__image-wrapper',
             classes: 'card__image-wrapper',
             attributes: {'data-test': 'card__image-wrapper'}
+          },
+          caption: {
+            show: true,
+            ID: 'card__image-caption',
+            classes: 'card__image-caption',
+            attributes: {'data-test': 'card__image-caption'}
           }
         },
         author: {

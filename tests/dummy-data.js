@@ -1,5 +1,6 @@
 export const article = {
   'image': 'image',
+  'imageCaption': 'title',
   'author': 'author',
   'date': '2018-08-03T17:32:14Z',
   'title': 'title',
@@ -18,6 +19,7 @@ export const articles = [article]
 export const options = {
   sources: {
     image: 'image',
+    imageCaption: 'title',
     author: 'author',
     date: 'date',
     title: 'title',
@@ -52,6 +54,12 @@ export const options = {
       ID: 'card__image-wrapper',
       classes: 'card__image-wrapper',
       attributes: {'data-test': 'card__image-wrapper'}
+    },
+    caption: {
+      show: true,
+      ID: 'card__image-caption',
+      classes: 'card__image-caption',
+      attributes: {'data-test': 'card__image-caption'}
     }
   },
   author: {

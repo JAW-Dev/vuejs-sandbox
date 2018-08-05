@@ -47,4 +47,15 @@ describe('component.vue', () => {
     h.domHas(selector)
     h.domHasLength(selector, 1)
   })
+
+  it('.card__image-caption data is set', () => {
+    let selector = '.card__image-caption'
+    h.domHas(selector)
+    h.domHasLength(selector, 1)
+  })
+
+  it('.card__image-caption contains text', () => {
+    let selector = '.card__image-caption'
+    h.containsText(selector, article[options.sources.imageCaption])
+  })
 })

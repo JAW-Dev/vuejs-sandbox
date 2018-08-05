@@ -21,6 +21,7 @@ export default {
       options: {
         sources: {
           image: 'image',
+          imageCaption: 'title',
           author: 'author',
           date: 'date',
           title: 'title',
@@ -101,6 +102,7 @@ export default {
     transform: translate( -50%, -50%);
   }
 
+  .card__image-caption,
   .card__title,
   .card__author,
   .card__date,
