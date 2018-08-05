@@ -88,7 +88,6 @@ export const mergedOptions = {
           }
         },
         author: {
-          source: '',
           show: true,
           ID: 'card__author',
           classes: 'card__author',
@@ -101,7 +100,6 @@ export const mergedOptions = {
             attributes: {}
           },
           link: {
-            source: '',
             show: false,
             ID: 'card__author-link',
             classes: 'card__author-link',
@@ -114,7 +112,6 @@ export const mergedOptions = {
           }
         },
         date: {
-          source: '',
           show: true,
           ID: 'card__date',
           classes: 'card__date',
@@ -136,7 +133,6 @@ export const mergedOptions = {
             attributes: {}
           },
           link: {
-            source: '',
             show: false,
             ID: 'card__date-link',
             classes: 'card__date-link',
@@ -149,13 +145,11 @@ export const mergedOptions = {
           }
         },
         title: {
-          source: '',
           show: true,
           ID: 'card__title',
           classes: 'card__title',
           attributes: {},
           link: {
-            source: '',
             show: true,
             ID: 'card__title-link',
             classes: 'card__title-link',
@@ -168,13 +162,11 @@ export const mergedOptions = {
           }
         },
         description: {
-          source: '',
           show: true,
           ID: 'card__description',
           classes: 'card__description',
           attributes: {},
           link: {
-            source: '',
             show: false,
             ID: 'card__description-link',
             classes: 'card__description-link',
@@ -193,7 +185,6 @@ export const mergedOptions = {
           classes: 'card__readMore',
           attributes: {},
           link: {
-            source: '',
             show: true,
             ID: 'card__readMore-link',
             classes: 'card__readMore-link',
