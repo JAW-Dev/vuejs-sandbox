@@ -23,16 +23,23 @@ describe('component.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('.card__date data is set', () => {
-    let selector = '.card__date'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  let selectors = [
+    '.card__date',
+    '.card__date-label',
+    '.card__date-text',
+    '.card__date-link'
+  ]
+
+  selectors.forEach(selector => {
+    it(selector + ' has class set', () => {
+      h.domHas(selector)
+    })
   })
 
-  it('.card__date-label data is set', () => {
-    let selector = '.card__date-label'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  selectors.forEach(selector => {
+    it(selector + ' conditional is true', () => {
+      h.domHasLength(selector, 1)
+    })
   })
 
   it('.card__date-label contains text', () => {
@@ -40,21 +47,9 @@ describe('component.vue', () => {
     h.containsText(selector, options.date.label.labelText)
   })
 
-  it('.card__date-text data is set', () => {
-    let selector = '.card__date-text'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
-  })
-
   it('.card__date-text contains text', () => {
     let selector = '.card__date-text'
     let text = 'August 3, 2018'
     h.containsText(selector, text)
-  })
-
-  it('.card__date-link data is set', () => {
-    let selector = '.card__date-link'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
   })
 })

@@ -21,26 +21,26 @@ describe('component.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('.card__readMore data is set', () => {
-    let selector = '.card__readMore'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  let selectors = [
+    '.card__readMore',
+    '.card__readMore-text',
+    '.card__readMore-link'
+  ]
+
+  selectors.forEach(selector => {
+    it(selector + ' has class set', () => {
+      h.domHas(selector)
+    })
   })
 
-  it('.card__readMore-text data is set', () => {
-    let selector = '.card__readMore-text'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  selectors.forEach(selector => {
+    it(selector + ' conditional is true', () => {
+      h.domHasLength(selector, 1)
+    })
   })
 
   it('.card__readMore-text contains text', () => {
     let selector = '.card__readMore-text'
     h.containsText(selector, options.readMore.moreText)
-  })
-
-  it('.card__readMore-link data is set', () => {
-    let selector = '.card__readMore-link'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
   })
 })

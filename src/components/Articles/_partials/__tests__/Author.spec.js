@@ -21,37 +21,33 @@ describe('component.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('.card__author data is set', () => {
-    let selector = '.card__author'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  let selectors = [
+    '.card__author',
+    '.card__author-label',
+    '.card__author-text',
+    '.card__author-link'
+  ]
+
+  selectors.forEach(selector => {
+    it(selector + ' has class set', () => {
+      h.domHas(selector)
+    })
   })
 
-  it('.card__author-label data is set', () => {
-    let selector = '.card__author-label'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  selectors.forEach(selector => {
+    it(selector + ' conditional is true', () => {
+      h.domHasLength(selector, 1)
+    })
   })
 
-  it('.card__author-label contains text', () => {
-    let selector = '.card__author-label'
-    h.containsText(selector, options.author.label.labelText)
-  })
+  let textObjects = [
+    {selector: '.card__author-label', text: options.author.label.labelText},
+    {selector: '.card__author-text', text: article[options.sources.author]}
+  ]
 
-  it('.card__author-text data is set', () => {
-    let selector = '.card__author-text'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
-  })
-
-  it('.card__author-text contains text', () => {
-    let selector = '.card__author-text'
-    h.containsText(selector, article[options.sources.author])
-  })
-
-  it('.card__author-link data is set', () => {
-    let selector = '.card__author-link'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  textObjects.forEach(obj => {
+    it(obj.selector + ' contains text', () => {
+      h.containsText(obj.selector, obj.text)
+    })
   })
 })

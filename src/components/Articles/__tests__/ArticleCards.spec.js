@@ -21,25 +21,27 @@ describe('ArticleCards.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('.articles data is set', () => {
-    let selector = '.articles'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  let classesSelectors = [
+    '.articles',
+    '.articles__cards',
+    '.cards__header',
+    '.cards__footer'
+  ]
+
+  classesSelectors.forEach(selector => {
+    it(selector + ' has class set', () => {
+      h.domHas(selector)
+    })
   })
 
-  it('.articles__cards data is set', () => {
-    let selector = '.articles__cards'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
-  })
+  let conditionalsSelectors = [
+    '.articles',
+    '.articles__cards'
+  ]
 
-  it('.cards__header has class', () => {
-    let selector = '.cards__header'
-    h.domHas(selector)
-  })
-
-  it('.cards__footer has class', () => {
-    let selector = '.cards__footer'
-    h.domHas(selector)
+  conditionalsSelectors.forEach(selector => {
+    it(selector + ' conditional is true', () => {
+      h.domHasLength(selector, 1)
+    })
   })
 })

@@ -21,26 +21,26 @@ describe('component.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('.card__description data is set', () => {
-    let selector = '.card__description'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  let selectors = [
+    '.card__description',
+    '.card__description-text',
+    '.card__description-link'
+  ]
+
+  selectors.forEach(selector => {
+    it(selector + ' has class set', () => {
+      h.domHas(selector)
+    })
   })
 
-  it('.card__description-text data is set', () => {
-    let selector = '.card__description-text'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  selectors.forEach(selector => {
+    it(selector + ' conditional is true', () => {
+      h.domHasLength(selector, 1)
+    })
   })
 
   it('.card__description-text contains text', () => {
     let selector = '.card__description-text'
     h.containsText(selector, article[options.sources.description])
-  })
-
-  it('.card__description-link data is set', () => {
-    let selector = '.card__description-link'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
   })
 })

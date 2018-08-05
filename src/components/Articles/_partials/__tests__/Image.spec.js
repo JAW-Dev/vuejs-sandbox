@@ -21,37 +21,31 @@ describe('component.vue', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('.card__image-wrapper data is set', () => {
-    let selector = '.card__image-wrapper'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  let selectors = [
+    '.card__image-wrapper',
+    '.card__image',
+    '.card__image-link',
+    '.card__image-caption'
+  ]
+
+  selectors.forEach(selector => {
+    it(selector + ' has class set', () => {
+      h.domHas(selector)
+    })
   })
 
-  it('.card__image data is set', () => {
-    let selector = '.card__image'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
+  selectors.forEach(selector => {
+    it(selector + ' conditional is true', () => {
+      h.domHasLength(selector, 1)
+    })
   })
 
   it('.card__image attributs are set', () => {
     let selector = '.card__image'
-    h.domHas(selector)
     h.hasAttribute(selector, 'src')
     h.attributeValueIs(selector, 'src', article.image)
     h.hasAttribute(selector, 'alt')
     h.attributeValueIs(selector, 'alt', article.description)
-  })
-
-  it('.card__image-link data is set', () => {
-    let selector = '.card__image-link'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
-  })
-
-  it('.card__image-caption data is set', () => {
-    let selector = '.card__image-caption'
-    h.domHas(selector)
-    h.domHasLength(selector, 1)
   })
 
   it('.card__image-caption contains text', () => {
