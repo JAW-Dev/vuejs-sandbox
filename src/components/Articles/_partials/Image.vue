@@ -3,8 +3,8 @@
     :theId="options.image.link.ID"
     :classes="options.image.link.classes"
     :attributes="options.image.link.attributes"
-    :theHref="getSource(article[options.image.link.source])"
-    :renderLink="renderElement(options.image.link.show)">
+    :theHref="getUrl(options.sources.imageUrl)"
+    :renderLink="renderElement(getUrl(options.sources.imageUrl) && options.image.link.show)">
     <picture
       :id="options.image.wrapper.ID"
       :class="options.image.wrapper.classes"

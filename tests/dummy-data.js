@@ -1,17 +1,35 @@
 export const article = {
-  'url': 'url',
   'image': 'image',
   'author': 'author',
-  'authorUrl': 'authorLink',
   'date': '2018-08-03T17:32:14Z',
-  'dateUrl': 'dateUrl',
   'title': 'title',
-  'description': 'description'
+  'description': 'description',
+  'url': 'url',
+  'imageUrl': 'imageUrl',
+  'authorUrl': 'authorLink',
+  'dateUrl': 'dateUrl',
+  'titleUrl': 'titleUrl',
+  'descriptionUrl': 'descriptionUrl',
+  'readMoreUrl': 'readMoreUrl'
 }
 
 export const articles = [article]
 
 export const options = {
+  sources: {
+    image: 'image',
+    author: 'author',
+    date: 'date',
+    title: 'title',
+    description: 'description',
+    url: 'url',
+    imageUrl: 'imageUrl',
+    authorUrl: 'authorUrl',
+    dateUrl: 'dateUrl',
+    titleUrl: 'titleUrl',
+    descriptionUrl: 'descriptionUrl',
+    readMoreUrl: 'readMoreUrl'
+  },
   articles: {
     ID: 'articles',
     classes: 'articles',

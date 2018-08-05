@@ -13,8 +13,8 @@
       :theId="options.date.link.ID"
       :classes="options.date.link.classes"
       :attributes="options.date.link.attributes"
-      :theHref="article[options.date.link.source]"
-      :renderLink="renderElement(getSource(article[options.date.link.source]) && options.date.link.show)">
+      :theHref="getUrl(options.sources.dateUrl)"
+      :renderLink="renderElement(getUrl(options.sources.dateUrl) && options.date.link.show)">
         <span
           slot="content"
           :id="options.date.text.ID"

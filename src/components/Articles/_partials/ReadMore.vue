@@ -8,13 +8,13 @@
       :theId="options.readMore.link.ID"
       :classes="options.readMore.link.classes"
       :attributes="options.readMore.link.attributes"
-      :theHref="article[options.readMore.link.source]"
-      :renderLink="renderElement(getSource(article[options.readMore.link.source]) && options.readMore.link.show)">
+      :theHref="getUrl(options.sources.readMoreUrl)"
+      :renderLink="renderElement(getUrl(options.sources.readMoreUrl) && options.readMore.link.show)">
       <span
         slot="content"
         :id="options.readMore.text.ID"
         :class="options.readMore.text.classes"
-        v-bind="options.readMore.text.attributes">{{ options.readMore.moreText }}</span>
+        v-bind="options.readMore.text.attributes">{{ getSource(options.readMore.moreText) }}</span>
     </card-link>
   </div>
 </template>

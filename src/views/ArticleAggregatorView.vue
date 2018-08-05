@@ -19,39 +19,53 @@ export default {
   data() {
     return {
       options: {
+        sources: {
+          image: 'image',
+          author: 'author',
+          date: 'date',
+          title: 'title',
+          description: 'description',
+          url: 'url',
+          // imageUrl: 'imageUrl',
+          // authorUrl: 'authorUrl',
+          // dateUrl: 'dateUrl',
+          // titleUrl: 'titleUrl',
+          // descriptionUrl: 'descriptionUrl',
+          // readMoreUrl: 'readMoreUrl'
+        },
         image: {
           source: 'image',
           link: {
-            source: 'url',
+            source: 'url'
           }
         },
-        author: {
-          source: 'author',
-          link: {
-            source: 'authorUrl'
-          },
-        },
+        // author: {
+        //   source: 'author',
+        //   link: {
+        //     source: 'authorUrl'
+        //   }
+        // },
         date: {
           source: 'date',
           link: {
-            source: 'dateUrl',
+            source: 'dateUrl'
           }
         },
         title: {
           source: 'title',
           link: {
-            source: 'url',
+            source: 'url'
           }
         },
         description: {
           source: 'description',
           link: {
-            source: 'url',
+            source: 'url'
           }
         },
         readMore: {
           link: {
-            source: 'url',
+            source: 'url'
           }
         }
       }

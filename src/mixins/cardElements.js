@@ -34,6 +34,11 @@ export const methods = {
         return source
       }
       return ''
+    },
+    getUrl(source) {
+      let defaultUrl = this.article[this.options.sources.url]
+      let output = (source) || ((defaultUrl) || '')
+      return output
     }
   }
 }
@@ -204,7 +209,7 @@ export const mergedOptions = {
     }
   },
   computed: {
-    assignedOptions() {
+    mergedOptions() {
       return merge.all([this.defaults, this.options])
     }
   }

@@ -8,8 +8,8 @@
       :theId="options.title.link.ID"
       :classes="options.title.link.classes"
       :attributes="options.title.link.attributes"
-      :theHref="getSource(article[options.title.link.source])"
-      :renderLink="renderElement(getSource(article[options.title.link.source]) && options.title.link.show)">
+      :theHref="getUrl(options.sources.titleUrl)"
+      :renderLink="renderElement(getUrl(options.sources.titleUrl) && options.title.link.show)">
       <span
         slot="content"
         :id="options.title.text.ID"
