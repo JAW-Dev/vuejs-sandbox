@@ -56,7 +56,7 @@ export const filters = {
   }
 }
 
-export const computed = {
+export const mergedOptions = {
   data() {
     return {
       defaults: {
