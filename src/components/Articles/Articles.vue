@@ -1,17 +1,17 @@
 <template>
-  <article-cards v-if="articles" :articles="articles" :options="assignedOptions"/>
+  <article-cards v-if="articles" :articles="articles" :options="mergedOptions"/>
 </template>
 
 <script>
 import ArticleCards from './ArticleCards'
-import { props, computed } from '@/mixins/cardElements'
+import { props, mergedOptions } from '@/mixins/cardElements'
 
 export default {
   name: 'articles-cards',
   components: {
     'article-cards': ArticleCards
   },
-  mixins: [props, computed],
+  mixins: [props, mergedOptions],
   props: {
     articles: {
       type: Array,
