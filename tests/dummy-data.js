@@ -33,9 +33,26 @@ export const options = {
     readMoreUrl: 'readMoreUrl'
   },
   articles: {
-    ID: 'articles',
-    classes: 'articles',
-    attributes: {'data-test': 'articles'}
+    section: {
+      ID: 'articles',
+      classes: 'articles',
+      attributes: {}
+    },
+    article: {
+      ID: 'articles__cards',
+      classes: 'articles__cards',
+      attributes: {}
+    },
+    header: {
+      ID: 'cards__header',
+      classes: 'cards__header',
+      attributes: {}
+    },
+    footer: {
+      ID: 'cards__footer',
+      classes: 'cards__footer',
+      attributes: {}
+    }
   },
   image: {
     source: 'image',

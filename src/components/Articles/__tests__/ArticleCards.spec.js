@@ -27,9 +27,19 @@ describe('ArticleCards.vue', () => {
     h.domHasLength(selector, 1)
   })
 
-  it('.article__card data is set', () => {
-    let selector = '.article__card'
+  it('.articles__cards data is set', () => {
+    let selector = '.articles__cards'
     h.domHas(selector)
     h.domHasLength(selector, 1)
+  })
+
+  it('.cards__header has class', () => {
+    let selector = '.cards__header'
+    h.domHas(selector)
+  })
+
+  it('.cards__footer has class', () => {
+    let selector = '.cards__footer'
+    h.domHas(selector)
   })
 })

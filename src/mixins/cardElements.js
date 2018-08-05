@@ -69,9 +69,26 @@ export const mergedOptions = {
     return {
       defaults: {
         articles: {
-          ID: 'articles',
-          classes: 'articles',
-          attributes: {}
+          section: {
+            ID: 'articles',
+            classes: 'articles',
+            attributes: {}
+          },
+          article: {
+            ID: 'articles__cards',
+            classes: 'articles__cards',
+            attributes: {}
+          },
+          header: {
+            ID: 'cards__header',
+            classes: 'cards__header',
+            attributes: {}
+          },
+          footer: {
+            ID: 'cards__footer',
+            classes: 'cards__footer',
+            attributes: {}
+          }
         },
         image: {
           show: true,

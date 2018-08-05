@@ -72,7 +72,7 @@ export default {
     max-width: px-to-em(1200);
   }
 }
-.article__card {
+.articles__cards {
   margin: 0.5rem;
   background-color: $white;
   border: 1px solid rgba(46, 46, 46, 0.3);

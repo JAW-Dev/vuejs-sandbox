@@ -1,16 +1,30 @@
 <template>
   <section
-    :id="options.articles.ID"
-    :class="options.articles.classes"
-    v-bind="options.articles.attributes"
+    :id="options.articles.section.ID"
+    :class="options.articles.section.classes"
+    v-bind="options.articles.section.attributes"
     v-if="articles">
-    <article class="article__card" v-if="articles" v-for="(article, index) in articles" :key="index">
-      <card-image :article="article" :options="options" />
-      <card-author :article="article" :options="options" />
-      <card-date :article="article" :options="options" />
-      <card-title :article="article" :options="options" />
+    <article
+      :id="options.articles.article.ID"
+      :class="options.articles.article.classes"
+      v-bind="options.articles.article.attributes"
+      v-if="articles" v-for="(article, index) in articles" :key="index">
+      <header
+        :id="options.articles.header.ID"
+        :class="options.articles.header.classes"
+        v-bind="options.articles.header.attributes">
+        <card-image :article="article" :options="options" />
+        <card-author :article="article" :options="options" />
+        <card-date :article="article" :options="options" />
+        <card-title :article="article" :options="options" />
+      </header>
       <card-description :article="article" :options="options" />
-      <card-readMore :article="article" :options="options" />
+      <footer
+        :id="options.articles.footer.ID"
+        :class="options.articles.footer.classes"
+        v-bind="options.articles.footer.attributes">
+        <card-readMore :article="article" :options="options" />
+      </footer>
     </article>
   </section>
 </template>
