@@ -25,7 +25,7 @@ export default {
           date: 'date',
           title: 'title',
           description: 'description',
-          url: 'url',
+          url: 'url'
           // imageUrl: 'imageUrl',
           // authorUrl: 'authorUrl',
           // dateUrl: 'dateUrl',
@@ -33,40 +33,15 @@ export default {
           // descriptionUrl: 'descriptionUrl',
           // readMoreUrl: 'readMoreUrl'
         },
-        image: {
-          source: 'image',
-          link: {
-            source: 'url'
-          }
+        author: {
         },
-        // author: {
-        //   source: 'author',
-        //   link: {
-        //     source: 'authorUrl'
-        //   }
-        // },
         date: {
-          source: 'date',
-          link: {
-            source: 'dateUrl'
-          }
         },
         title: {
-          source: 'title',
-          link: {
-            source: 'url'
-          }
         },
         description: {
-          source: 'description',
-          link: {
-            source: 'url'
-          }
         },
         readMore: {
-          link: {
-            source: 'url'
-          }
         }
       }
     }
