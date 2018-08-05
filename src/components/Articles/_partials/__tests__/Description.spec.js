@@ -35,7 +35,7 @@ describe('component.vue', () => {
 
   it('.card__description-text contains text', () => {
     let selector = '.card__description-text'
-    h.containsText(selector, article[options.description.source])
+    h.containsText(selector, article[options.sources.description])
   })
 
   it('.card__description-link data is set', () => {

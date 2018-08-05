@@ -46,7 +46,7 @@ describe('component.vue', () => {
 
   it('.card__author-text contains text', () => {
     let selector = '.card__author-text'
-    h.containsText(selector, article[options.author.source])
+    h.containsText(selector, article[options.sources.author])
   })
 
   it('.card__author-link data is set', () => {
