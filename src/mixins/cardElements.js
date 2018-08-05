@@ -187,24 +187,14 @@ export const props = {
 export const methods = {
   methods: {
     renderElement(conditional) {
-      if (conditional) {
-        return true
-      }
-      return false
-    },
-    getSource(source) {
-      if (source) {
-        return source
-      }
-      return ''
+      return !!(conditional)
     },
     isSet(source) {
       return (source) || ''
     },
     getUrl(source) {
       let defaultUrl = this.article[this.options.sources.url]
-      let output = (source) || ((defaultUrl) || '')
-      return output
+      return (source) || ((defaultUrl) || '')
     }
   }
 }
